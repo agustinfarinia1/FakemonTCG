@@ -1,4 +1,3 @@
-import Cartas.Carta;
 import Cartas.Carta_basica;
 import Cartas.Carta_epica;
 import Cartas.Carta_legendaria;
@@ -32,5 +31,6 @@ public class Main {
 
 
 /// probando 123
+/// prbando 12123123
 	
 }

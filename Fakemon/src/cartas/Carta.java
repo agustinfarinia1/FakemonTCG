@@ -1,4 +1,4 @@
-package Cartas;
+package cartas;
 
 import java.lang.String;
 import java.lang.Math;

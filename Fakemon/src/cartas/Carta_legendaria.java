@@ -1,6 +1,6 @@
-package Cartas;
+package cartas;
 
-import Interfaces.Atacar;
+import interfaces.Atacar;
 
 public  class Carta_legendaria extends Carta implements Atacar{
 

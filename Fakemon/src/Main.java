@@ -1,6 +1,6 @@
-import Cartas.Carta_basica;
-import Cartas.Carta_epica;
-import Cartas.Carta_legendaria;
+import cartas.Carta_basica;
+import cartas.Carta_epica;
+import cartas.Carta_legendaria;
 
 public class Main {
 

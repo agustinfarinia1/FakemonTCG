@@ -1,21 +1,17 @@
-package Cartas;
+package cartas;
 
-import Interfaces.Atacar;
+import interfaces.Atacar;
 
-public  class Carta_epica extends Carta implements Atacar{
+public  class Carta_basica extends Carta implements Atacar{
 
 	public int ataqueEspecial1;
-	public int ataqueEspecial2;
 
 	
-	public Carta_epica(int id_Carta, String nombre_Carta) 
+	public Carta_basica(int id_Carta, String nombre_Carta) 
 	{
-		super(id_Carta, nombre_Carta, "epico");
+		super(id_Carta, nombre_Carta, "basico");
 		ataqueEspecial1 = ataqueEspecial(3,1);	
-		ataqueEspecial2 = ataqueEspecial(5,3);	
 	}
-	
-	
 	
 
 	public int getAtaqueEspecial1() 
@@ -39,8 +35,8 @@ public  class Carta_epica extends Carta implements Atacar{
 
 	@Override
 	public String toString() {
-		return super.toString() + "ataqueEspecial 1= " + ataqueEspecial1 + "\nataqueEspecial 2= " + ataqueEspecial2;
+		return super.toString() + "ataqueEspecial 1= " + ataqueEspecial1;
 	}
 
-	
+		
 }

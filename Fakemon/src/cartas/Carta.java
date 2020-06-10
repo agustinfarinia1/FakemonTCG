@@ -24,6 +24,10 @@ public  class Carta {
 		
 	}
 
+	public Carta() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getVida() {
 		return vida;
 	}

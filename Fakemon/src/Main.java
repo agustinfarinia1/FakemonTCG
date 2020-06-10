@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
+import cartas.Carta;
 import cartas.Carta_basica;
 import cartas.Carta_epica;
 import cartas.Carta_legendaria;
@@ -50,7 +51,29 @@ public class Main {
 	
 	*/
 	
-	}
+	/*
+	Mazo mazo = new Mazo();
+	
+	mazo.agregarCarta(nuevaCarta1);
+	mazo.agregarCarta(nuevaCarta2);
+	mazo.agregarCarta(nuevaCarta3);
+	
+	System.out.println(mazo.getMazo());
+	
+	
+	int i = 0;
+	
+	
+	Carta carta = new Carta();
+	carta = mazo.robarUnaCarta(mazo, i);
+	
+	System.out.println(mazo.getMazo());
+	System.out.println("CARTA SOLITA: \n");
+	System.out.println(carta.toString());
+	*/
+	
+		
+}
 
 	
 /// probando 123

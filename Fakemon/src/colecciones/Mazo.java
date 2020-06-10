@@ -1,23 +1,24 @@
 package colecciones;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import cartas.Carta;
 import interfaces.IColeccion;
 
 public class Mazo implements IColeccion{
-	ArrayList<Carta> mazo;
+	private ArrayList<Carta> mazo;
 
 	public Mazo()
 	{
-		mazo = new ArrayList <Carta>();
+		setMazo(new ArrayList <Carta>());
 	}
 
 	@Override
 	public String listar() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Lista de Cartas:\n");
-		for(Carta c : mazo)
+		for(Carta c : getMazo())
 		{
 			builder.append(c.toString()+"\n");
 			
@@ -26,27 +27,42 @@ public class Mazo implements IColeccion{
 	}
 	
 	public void agregarCarta(Carta e) {
-		mazo.add(e);
+		getMazo().add(e);
 	}
 
 	public void eliminarCarta(Carta c) {
-		mazo.remove(c);
+		getMazo().remove(c);
 	}
 	
 	@Override
 	public int cantidad() {
-		return mazo.size();
+		return getMazo().size();
 	}
 
 	@Override
 	public boolean existencia(Object obj) {
 		Carta c = (Carta) obj;
-		return mazo.contains(c);
+		return getMazo().contains(c);
 	}
 
 	@Override
 	public String toString() {
 		return listar();
+	}
+
+	public ArrayList<Carta> getMazo() {
+		return mazo;
+	}
+
+	public void setMazo(ArrayList<Carta> mazo) {
+		this.mazo = mazo;
+	}
+	
+	/// METODO QUE DESORDENA UN MAZO Y SE SIRVE DE COLLECTION.shuffle
+	public void desordenarMazo(Mazo mazo)
+	{
+		/// RECIBIMOS UN MAZO CARGADO, Y LO MEZCLAMOS. SHUFFLE RECIBE UN "LIST" Y LE PASAMOS EL ATRIBUTO DE MAZO, QUE ES UN ARRAYLIST
+		Collections.shuffle(mazo.getMazo());
 	}
 	
 	

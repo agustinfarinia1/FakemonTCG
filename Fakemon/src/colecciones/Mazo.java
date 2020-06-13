@@ -65,18 +65,5 @@ public class Mazo implements IColeccion{
 		Collections.shuffle(mazo.getMazo());
 	}
 	
-	/// FUNCION QUE DEVUELVE LA PRIMERA CARTA DE NUESTRO MAZO. RECIBIMOS UN MAZO CARGADO, Y EL INDICE PARA ROBAR
-	public Carta robarUnaCarta(Mazo mazo, int i) 
-	{
-		Carta carta = new Carta(); /// CREAMOS UN OBJETO PARA SETEARLE EL VALOR
-		
-		if(i < mazo.getMazo().size()) /// COMPARAMOS EL TAMAÑO PARA NO PASARNOS
-		{
-			mazo.getMazo().get(i); /// TOMAMOS EL PRIMERO
-			carta = mazo.getMazo().get(i); /// LO GUARDAMOS EN UN OBJETO AUXILIAR
-			mazo.getMazo().remove(i); /// BORRAMOS LA CARTA QUE ROBAMOS
-		}
-		return carta; /// DEVOLVEMOS
-	}
-	
+	/// ACA HABIA UN METODO DE ROBAR UNA CARTA, PERO LO PASE A LA CLASE MANO
 }

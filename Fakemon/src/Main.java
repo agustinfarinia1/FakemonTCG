@@ -5,6 +5,7 @@ import cartas.Carta;
 import cartas.Carta_basica;
 import cartas.Carta_epica;
 import cartas.Carta_legendaria;
+import colecciones.Mano;
 import colecciones.Mazo;
 
 public class Main {
@@ -51,9 +52,13 @@ public class Main {
 	
 	*/
 	
-	/*
-	Mazo mazo = new Mazo();
 	
+	Mazo mazo = new Mazo();
+	Mano mano = new Mano();
+	
+	Carta carta = new Carta();
+	
+	/*
 	mazo.agregarCarta(nuevaCarta1);
 	mazo.agregarCarta(nuevaCarta2);
 	mazo.agregarCarta(nuevaCarta3);
@@ -61,18 +66,40 @@ public class Main {
 	System.out.println(mazo.getMazo());
 	
 	
-	int i = 0;
-	
-	
-	Carta carta = new Carta();
-	carta = mazo.robarUnaCarta(mazo, i);
+	carta = mano.robarUnaCarta(mazo);
 	
 	System.out.println(mazo.getMazo());
 	System.out.println("CARTA SOLITA: \n");
 	System.out.println(carta.toString());
+	
 	*/
 	
-		
+	mazo.agregarCarta(nuevaCarta1);
+	mazo.agregarCarta(nuevaCarta2);
+	mazo.agregarCarta(nuevaCarta3);
+	mazo.agregarCarta(nuevaCarta4);
+	mazo.agregarCarta(nuevaCarta5);
+	mazo.agregarCarta(nuevaCarta6);
+	
+	mazo.desordenarMazo(mazo);
+	
+	System.out.println(mazo.getMazo());
+
+	
+	mano.manoInicial(mano, mazo);
+	
+	System.out.println("\n");
+	System.out.println("\n");
+	System.out.println("MANO INICIAL: \n");
+	
+	System.out.println(mano.toString());
+	
+	System.out.println("\n");
+	System.out.println("\n");
+	
+	System.out.println(mazo.getMazo());
+	
+
 }
 
 	

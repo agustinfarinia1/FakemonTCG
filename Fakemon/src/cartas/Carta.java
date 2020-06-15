@@ -12,6 +12,7 @@ public  class Carta implements Serializable{
 	private String rareza;
 	private int vida;
 	private int ataqueBase;
+	//private int Valor  		/// 3 para basic 5 para epic y 10 para legen
 	
 
 	public Carta (int id_Carta, String nombre_Carta, String rareza) 

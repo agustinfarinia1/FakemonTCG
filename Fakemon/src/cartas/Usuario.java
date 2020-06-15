@@ -12,6 +12,8 @@ public class Usuario {
 	String nombre;
 	String contraseña;
 	private Mazo mazo;
+	//private int misMonedas
+	//private Coleccion miCcoleccion
 	
 	public Usuario() {
 		id_usuario = "";

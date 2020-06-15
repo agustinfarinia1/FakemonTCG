@@ -12,6 +12,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		// prueba notebook farinia
 	
 	Carta_basica nuevaCarta1 = new Carta_basica(0001, "charmander");
 	//System.out.println(nuevaCarta1.toString());

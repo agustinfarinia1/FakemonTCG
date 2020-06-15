@@ -25,7 +25,7 @@ public class Mazo implements IColeccion{
 		}
 		return builder.toString();
 	}
-	
+	//TODO antes de agregar las cartas, tendria que verificar en la lista si esta existe . ya hay un metodo de comprobacion, faltaria implementarlo
 	public void agregarCarta(Carta e) {
 		getMazo().add(e);
 	}

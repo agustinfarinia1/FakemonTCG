@@ -1,10 +1,11 @@
 package cartas;
 
 import java.lang.String;
+import java.io.Serializable;
 import java.lang.Math;
 
 
-public  class Carta {
+public  class Carta implements Serializable{
 
 	private int id_Carta;
 	private String nombre_Carta;
@@ -133,5 +134,15 @@ public  class Carta {
 	public String toString() {
 		return "\n"+"id_Carta = " + id_Carta + "\nnombre_Carta = " + nombre_Carta + "\nvida = "+ vida + "\nataqueBase = " + ataqueBase+ "\n";
 	}
-
+	
+	@Override
+	public boolean equals(Object obj) {
+	Carta aux= (Carta)obj;
+	boolean existencia = false;
+	 
+		if (aux.getId_Carta() == (this.getId_Carta())){
+			existencia = true;
+		}
+		return existencia;
+	}
 }

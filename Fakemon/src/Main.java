@@ -5,14 +5,13 @@ import cartas.Carta;
 import cartas.Carta_basica;
 import cartas.Carta_epica;
 import cartas.Carta_legendaria;
+import colecciones.ListaCarta;
 import colecciones.Mano;
 import colecciones.Mazo;
 
 public class Main {
 
 	public static void main(String[] args) {
-		
-		// prueba notebook farinia
 	
 	Carta_basica nuevaCarta1 = new Carta_basica(0001, "charmander");
 	//System.out.println(nuevaCarta1.toString());
@@ -32,7 +31,33 @@ public class Main {
 	
 	Carta_legendaria nuevaCarta6 = new Carta_legendaria(0006, "mewtwo");
 	//System.out.println(nuevaCarta6.toString());
-
+	
+	
+	
+	// Ejemplo de como funcionaria el stock de cartas
+	
+	ListaCarta lista = new ListaCarta();
+	
+	lista.cargarLista(lista);	// carga la lista con los datos del archivo
+	
+	/* esto seria como se carga en el archivo , como ya esta cargado no es necesario
+	 * 
+	lista.agregarCarta(nuevaCarta1);
+	lista.agregarCarta(nuevaCarta2);
+	lista.agregarCarta(nuevaCarta3);
+	lista.agregarCarta(nuevaCarta4);
+	lista.agregarCarta(nuevaCarta5);
+	lista.agregarCarta(nuevaCarta6);
+	 */
+	
+	System.out.println(lista.listar());
+	
+	lista.GuardarLista();	// guarda la lista en el archivo
+	
+	//lista.leerArchivo();	// ve los datos del archivo
+	
+	
+	
 	/* ESTO ERA PARA PROBAR COMO DESORDENAR UN MAZO Y FUNCIONA, ASI QUE LO HICIMOS CANCION... DIGO DIGO FUNCION.
 	//ArrayList array = new ArrayList();
 	Mazo mazo = new Mazo();
@@ -74,7 +99,7 @@ public class Main {
 	System.out.println(carta.toString());
 	
 	*/
-	
+	/*
 	mazo.agregarCarta(nuevaCarta1);
 	mazo.agregarCarta(nuevaCarta2);
 	mazo.agregarCarta(nuevaCarta3);
@@ -99,14 +124,7 @@ public class Main {
 	System.out.println("\n");
 	
 	System.out.println(mazo.getMazo());
-	
-
-}
-
-	
-/// probando 123
-/// prbando 12123123
-	
-	/// last one
+	*/
+	}
 	
 }

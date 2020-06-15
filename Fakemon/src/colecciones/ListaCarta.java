@@ -176,5 +176,4 @@ public class ListaCarta implements IColeccion{
 			ex.printStackTrace();
 		}
 	}
-
 }

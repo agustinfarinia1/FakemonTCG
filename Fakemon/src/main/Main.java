@@ -6,6 +6,7 @@ import cartas.Carta;
 import cartas.Carta_basica;
 import cartas.Carta_epica;
 import cartas.Carta_legendaria;
+import colecciones.ListaCarta;
 //import colecciones.ListaCarta;
 import colecciones.Mano;
 import colecciones.Mazo;
@@ -37,23 +38,24 @@ public class Main {
 	
 	// Ejemplo de como funcionaria el stock de cartas
 	
-	//ListaCarta lista = new ListaCarta();
+	ListaCarta lista = new ListaCarta();
 	
-	//lista.cargarLista(lista);	// carga la lista con los datos del archivo
+	lista.cargarLista(lista);	// carga la lista con los datos del archivo
 	
-	/* esto seria como se carga en el archivo , como ya esta cargado no es necesario
-	 * 
+	//esto seria como se carga en el archivo , como ya esta cargado no es necesario
+	  
+	/*
 	lista.agregarCarta(nuevaCarta1);
 	lista.agregarCarta(nuevaCarta2);
 	lista.agregarCarta(nuevaCarta3);
 	lista.agregarCarta(nuevaCarta4);
 	lista.agregarCarta(nuevaCarta5);
 	lista.agregarCarta(nuevaCarta6);
-	 */
+	*/
 	
-	//System.out.println(lista.listar());
+	System.out.println(lista.listar());
 	
-	//lista.GuardarLista();	// guarda la lista en el archivo
+	lista.GuardarLista();	// guarda la lista en el archivo
 	//
 	//lista.leerArchivo();	// ve los datos del archivo
 	

@@ -21,10 +21,10 @@ public class Usuario {
 		contraseña = "";
 		setMazo(new Mazo());
 	}
-	public Usuario(String _id_usuario,String _nombre,String _contraseña) {
-		id_usuario = _id_usuario;
-		nombre = _nombre;
-		contraseña = _contraseña;
+	public Usuario(String id_usuario,String nombre,String contraseña) {
+		this.id_usuario = id_usuario;
+		this.nombre = nombre;
+		this.contraseña = contraseña;
 		setMazo(new Mazo());
 	}
 	public Mazo getMazo() {

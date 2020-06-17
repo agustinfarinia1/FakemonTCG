@@ -42,7 +42,8 @@ public class Coleccion {
 	public int ObtenerCantidadColeccion() {
 		return getColeccion().size();
 	}
-
+	
+	/// lista cartas mejora esto
 	public boolean existenciaColeccion(Object obj) {
 		Carta c = (Carta) obj;
 		return getColeccion().contains(c);

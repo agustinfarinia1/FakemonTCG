@@ -6,6 +6,7 @@ import cartas.Carta;
 import cartas.Carta_basica;
 import cartas.Carta_epica;
 import cartas.Carta_legendaria;
+import colecciones.ColeccionGenerica;
 import colecciones.ListaCarta;
 //import colecciones.ListaCarta;
 import colecciones.Mano;
@@ -15,7 +16,14 @@ public class Main {
 
 	public static void main(String[] args) {
 	
-	Carta_basica nuevaCarta1 = new Carta_basica(0001, "charmander");
+	Carta_basica charmander1 = new Carta_basica(0001, "charmander");
+	Carta_basica charmander2 = new Carta_basica(0001, "charmander");
+	Carta_basica charmander3 = new Carta_basica(0001, "charmander");
+	Carta_basica charmander4 = new Carta_basica(0001, "charmander");
+	Carta_basica charmander5 = new Carta_basica(0001, "charmander");
+	Carta_basica charmander6 = new Carta_basica(0001, "charmander");
+	
+	
 	//System.out.println(nuevaCarta1.toString());
 	
 	Carta_epica nuevaCarta2 = new Carta_epica(0002, "charmeleon");
@@ -53,7 +61,7 @@ public class Main {
 	lista.agregarCarta(nuevaCarta6);
 	*/
 	
-	System.out.println(lista.listar());
+//	System.out.println(lista.listar());
 	
 	lista.GuardarLista();	// guarda la lista en el archivo
 	//
@@ -87,21 +95,21 @@ public class Main {
 	
 	Carta carta = new Carta();
 	
-	/*
-	mazo.agregarCarta(nuevaCarta1);
-	mazo.agregarCarta(nuevaCarta2);
-	mazo.agregarCarta(nuevaCarta3);
 	
-	System.out.println(mazo.getMazo());
+	mazo.agregarCartaColeccion(nuevaCarta4);
+	mazo.agregarCartaColeccion(nuevaCarta2);
+	mazo.agregarCartaColeccion(nuevaCarta3);
+	
+	//System.out.println(mazo.getMazo());
 	
 	
-	carta = mano.robarUnaCarta(mazo);
+	//carta = mano.robarUnaCarta(mazo);
 	
-	System.out.println(mazo.getMazo());
-	System.out.println("CARTA SOLITA: \n");
-	System.out.println(carta.toString());
+	//System.out.println(mazo.getMazo());
+	//System.out.println("CARTA SOLITA: \n");
+	//System.out.println(carta.toString());
 	
-	*/
+	
 	/*
 	mazo.agregarCarta(nuevaCarta1);
 	mazo.agregarCarta(nuevaCarta2);
@@ -128,6 +136,36 @@ public class Main {
 	
 	System.out.println(mazo.getMazo());
 	*/
+	
+	/*
+	ArrayList<Carta> charmander = new ArrayList<Carta>();
+	
+	charmander.add(charmander1);
+	charmander.add(charmander2);
+	charmander.add(charmander3);
+	charmander.add(charmander4);
+	charmander.add(charmander5);
+	charmander.add(charmander6);
+	
+	ColeccionGenerica<ArrayList<Carta>> prueba = new ColeccionGenerica<ArrayList<Carta>>();
+	ColeccionGenerica<ArrayList<Carta>> mazo1 = new ColeccionGenerica<ArrayList<Carta>>();
+	
+	mazo1.añadir("m0001", mazo.getColeccion()); /// hashmap de mazo
+	
+	
+	
+	prueba.añadir("0001", charmander); /// hashmap de cartas exactamente iguales
+	
+	StringBuilder b = new StringBuilder();
+	
+	//b = prueba.listarHashMap(prueba.getHash());
+	b = mazo1.listarHashMap(mazo1.getHash());
+	
+	System.out.println(b);
+	
+	*/
+	
+	
 	}
 	
 }

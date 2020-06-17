@@ -2,6 +2,8 @@ package main;
 
 import java.util.Scanner;
 
+import cartas.Usuario;
+
 
 public class Menu {
 

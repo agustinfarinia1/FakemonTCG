@@ -3,7 +3,11 @@ package colecciones;
 /**@author Axel
 *
 *	Esta clase pretende recibir distintos tipos de objetos, para generarles un hashMap y guardar dentro de el, por ejemplo un arrayList
+*   De esta manera podemos por ejemplo asociar a una key un arrayList de cartas exactamente iguales, para que sea mas facil borrarlas.
+*   Agregar luego un id a cada carta que este en nuestro stock para poder borrarlas.
+*   O tambien, asignarle a una key (que podria ser el id de un usuario) varios mazos diferentes, de esta manera tendriamos varios mazos para un usuario. 
 */
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
@@ -11,21 +15,21 @@ import java.util.Set;
 
 public class ColeccionGenerica <T>{
 	
-	private HashMap<String, T> hash;
+	private HashMap<String, T> hMap;
 	
 	public ColeccionGenerica()
 	{
-		hash = new HashMap<String, T>();
+		hMap = new HashMap<String, T>();
 	}
 	
 	public void añadir(String key, T elemento)
 	{
-		hash.put(key, elemento);
+		hMap.put(key, elemento);
 	}
 	
 	public void remove(String key, T elemento)
 	{
-		hash.remove(key, elemento);
+		hMap.remove(key, elemento);
 	}
 	
 	public <Z> void TipoClase(T obj) 
@@ -46,17 +50,17 @@ public class ColeccionGenerica <T>{
 			
 			builder.append(aux.getKey());
 			builder.append("\n");
-			builder.append(aux.getValue().toString());
+			builder.append(aux.getValue());
 			builder.append("\n");
 		}
 		return builder;
 	}
 
 	public HashMap<String, T> getHash() {
-		return hash;
+		return hMap;
 	}
 
-	public void setHash(HashMap<String, T> hash) {
-		this.hash = hash;
+	public void setHash(HashMap<String, T> hMap) {
+		this.hMap = hMap;
 	}
 }

@@ -1,13 +1,15 @@
 package colecciones;
 
-
 import java.util.ArrayList;
 import java.util.Collections;
-
 import cartas.Carta;
 
-public class Booster {
+public class Booster extends Coleccion {
 
+	public Booster() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	/*
 	 * Metodo que genera automaticamente un booster con 7 cartas (1 legendaria, 2 epicas, 4 basicas)
 	 * las tiene que traer del archivo de cartas

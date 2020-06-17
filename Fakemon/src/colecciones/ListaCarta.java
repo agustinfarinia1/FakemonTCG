@@ -7,8 +7,12 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.lang.String;
 
 import cartas.Carta;
+import cartas.Carta_basica;
 import interfaces.IColeccion;
 
 // Tiene todas las cartas del juego, a futuro se puede cambiar por un hash map
@@ -176,4 +180,10 @@ public class ListaCarta implements IColeccion{
 			ex.printStackTrace();
 		}
 	}
+	
+	
+	
+	
+	
+	
 }

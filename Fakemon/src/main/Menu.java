@@ -1,6 +1,11 @@
 package main;
 
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Scanner;
+
+import cartas.Carta;
+import cartas.Usuario;
 
 
 public class Menu {
@@ -9,10 +14,13 @@ public class Menu {
 	private char salir = 's';
 	private int opcion;
 	
+	
 	public void loginUser (Usuario user)
 	{
 		
+		
 	}
+	
 	public void menuUsuario(Scanner scan) 
 	{
 		while ((salir == 's') || (salir == 'S'))

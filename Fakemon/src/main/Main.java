@@ -7,7 +7,7 @@ import cartas.Carta_basica;
 import cartas.Carta_epica;
 import cartas.Carta_legendaria;
 import colecciones.ListaCarta;
-//import colecciones.ListaCarta;
+import colecciones.ListaCarta;
 import colecciones.Mano;
 import colecciones.Mazo;
 

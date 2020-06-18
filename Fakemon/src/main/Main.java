@@ -15,7 +15,18 @@ import colecciones.Mazo;
 public class Main {
 
 	public static void main(String[] args) {
-	
+
+	String basicos[] = { "Bulbasaur", "Squirtle", "Charmander", "Caterpie", "Weedle", "Pidgey", "Rattata",
+						"Spearow", "Ekans", "Pikachu", "Sandshrew", "Nidoran", "Vulpix", "Jigglypuff", "Zubat", "Oddish",
+						"Paras", "Venonat", "Diglett", "Meowth", "Psyduck", "Mankey", "Growlithe", "Poliwag", "Abra", "Machop",
+						"Bellsprout", "Tentacool", "Geodude", "Ponyta" };
+
+	String epicos[] = { "Ivysaur", "Charmeleon", "Wartortle", "Metapod", "Kakuna", "Pidgeotto", "Raticate",
+						"Fearow", "Arbok", "Raichu", "Nidorina", "Ninetales", "Kadabra", "Golbat", "Gloom" };
+
+	String legendario[] = { "Charizard", "Blastoise", "Venusaur", "Butterfree", "Beedrill", "Pidgeot", "Nidoqueen",
+							"Vileplume", "Alakazam", "Mewtwo" };
+		
 	Carta_basica charmander1 = new Carta_basica(0001, "charmander");
 	Carta_basica charmander2 = new Carta_basica(0001, "charmander");
 	Carta_basica charmander3 = new Carta_basica(0001, "charmander");

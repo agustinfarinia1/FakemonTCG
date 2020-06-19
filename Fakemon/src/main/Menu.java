@@ -5,7 +5,10 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 import cartas.Carta;
+import cartas.ListaUsuario;
 import cartas.Usuario;
+import coleccion.ListaPersonas;
+import objetos.Persona;
 
 
 public class Menu {
@@ -13,12 +16,69 @@ public class Menu {
 	static Scanner scan;
 	private char salir = 's';
 	private int opcion;
+	ListaUsuario lista = new ListaUsuario();
 	
+	
+	
+	
+	public void menuPrincipal(Scanner scan)
+	{
+		
+		lista.archivoToListaUsuario(lista);
+		
+		Usuario user = new Usuario();
+		
+		while((salir == 's') || (salir == 'S'))
+		{
+			System.out.println("1. CONECTARSE" + "\n2. REGISTRARSE" + "\n3. SALIR" + "\n4. TEMP. MOSTRAR USUARIOS REGISTRADOS");
+			opcion = Integer.parseInt(scan.nextLine());
+			
+			switch(opcion)
+			{
+				case 1:
+				loginUser(user); // Va al método de logueo
+				
+				break;
+				
+				
+				case 2:	
+				registroUser(user); // Va al método de registro
+				
+				break;
+				
+				case 3:
+				System.out.println("Saliendo...");
+				
+				break;
+				
+				case 4:
+					
+					lista.leerArchivoUsuario(); // "Muestra" los usuarios que están en el archivo
+				
+				break;
+			}
+		}
+	}
 	
 	public void loginUser (Usuario user)
 	{
 		
+		System.out.println("TODO"); // Hacer logueo de usuario
+	}
+	
+	public void registroUser(Usuario user)
+	{
+		Scanner scan = new Scanner(System.in);
 		
+		System.out.println("Ingrese el nombre de usuario: ");
+		user.setNombreUsuario(scan.nextLine());
+		
+		System.out.println("Ingrese una contraseña: ");
+		user.setContrasenya(scan.nextLine());
+		
+		lista.agregarUsuario(user); //agrega un usuario a la lista
+		
+		lista.listaToArchivoUsuario(lista.cantidadUsuarios());	// Escribe en el archivo la lista actual
 	}
 	
 	public void menuUsuario(Scanner scan) 

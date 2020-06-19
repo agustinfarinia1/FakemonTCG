@@ -1,5 +1,14 @@
 package cartas;
 
+import java.io.EOFException;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
 /**@author Proyecto D
 *
 *	La clase Usuario controla el sistema , dependiendo el tipo de nivel que tiene.
@@ -7,26 +16,52 @@ package cartas;
 
 import colecciones.Mazo;
 
-public class Usuario {
-	String id_usuario;
-	String nombre;
-	String contraseña;
+public class Usuario implements Serializable {
+	
+	String idUsuario;
+	String nombreUsuario;
+	String contrasenya;
 	private Mazo mazo;
+	
+	public static String nombreArchivo = "usuario.dat";
+	
 	//private int misMonedas
 	//private Coleccion miCcoleccion
 	
 	public Usuario() {
-		id_usuario = "";
-		nombre = "";
-		contraseña = "";
+		idUsuario = "";
+		nombreUsuario = "";
+		contrasenya = "";
+		setMazo(new Mazo());
+	
+	}
+	public Usuario(String idUsuario,String nombreUsuario,String contrasenya) {
+		this.idUsuario = idUsuario;
+		this.nombreUsuario = nombreUsuario;
+		this.contrasenya = contrasenya;
 		setMazo(new Mazo());
 	}
-	public Usuario(String id_usuario,String nombre,String contraseña) {
-		this.id_usuario = id_usuario;
-		this.nombre = nombre;
-		this.contraseña = contraseña;
-		setMazo(new Mazo());
+	
+	public String getNombreUsuario()
+	{
+		return nombreUsuario;
 	}
+	
+	public void setNombreUsuario(String nombreUsuario)
+	{
+		this.nombreUsuario = nombreUsuario;
+	}
+	
+	public String getContrasenya() 
+	{
+		return contrasenya;
+	}
+	
+	public void setContrasenya(String contrasenya)
+	{
+		this.contrasenya = contrasenya;
+	}
+	
 	public Mazo getMazo() {
 		return mazo;
 	}
@@ -36,6 +71,6 @@ public class Usuario {
 	
 	@Override
 	public String toString() {
-		return "| id_usuario = " + id_usuario + "| nombre = " + nombre + " | contraseña = " + contraseña + "| Mazo : " + getMazo().toString();
+		return "| ID del Usuario = " + idUsuario + "| Nombre de Usuario = " + nombreUsuario + " | Contraseña = " + contrasenya + "| Mazo : " + getMazo().toString();
 	}
-}
+}	

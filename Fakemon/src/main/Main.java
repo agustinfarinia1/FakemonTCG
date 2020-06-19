@@ -1,21 +1,28 @@
 package main;
 import java.util.ArrayList;
+
 import java.util.Collections;
+import java.util.Scanner;
 
 import cartas.Carta;
 import cartas.Carta_basica;
 import cartas.Carta_epica;
 import cartas.Carta_legendaria;
+import cartas.ListaUsuario;
+import cartas.Usuario;
+import coleccion.ListaPersonas;
 import colecciones.ColeccionGenerica;
 import colecciones.ListaCarta;
 import colecciones.ListaCarta;
 import colecciones.Mano;
 import colecciones.Mazo;
+import main.Menu;
 
 public class Main {
 
 	public static void main(String[] args) {
 
+		/*
 	String basicos[] = { "Bulbasaur", "Squirtle", "Charmander", "Caterpie", "Weedle", "Pidgey", "Rattata",
 						"Spearow", "Ekans", "Pikachu", "Sandshrew", "Nidoran", "Vulpix", "Jigglypuff", "Zubat", "Oddish",
 						"Paras", "Venonat", "Diglett", "Meowth", "Psyduck", "Mankey", "Growlithe", "Poliwag", "Abra", "Machop",
@@ -63,7 +70,7 @@ public class Main {
 	
 	//esto seria como se carga en el archivo , como ya esta cargado no es necesario
 	  
-	/*
+	
 	lista.agregarCarta(nuevaCarta1);
 	lista.agregarCarta(nuevaCarta2);
 	lista.agregarCarta(nuevaCarta3);
@@ -74,7 +81,7 @@ public class Main {
 	
 //	System.out.println(lista.listar());
 	
-	lista.GuardarLista();	// guarda la lista en el archivo
+	//lista.GuardarLista();	// guarda la lista en el archivo
 	//
 	//lista.leerArchivo();	// ve los datos del archivo
 	
@@ -100,7 +107,7 @@ public class Main {
 	
 	*/
 	
-	
+	/*
 	Mazo mazo = new Mazo();
 	Mano mano = new Mano();
 	
@@ -111,6 +118,7 @@ public class Main {
 	mazo.agregarCartaColeccion(nuevaCarta2);
 	mazo.agregarCartaColeccion(nuevaCarta3);
 	
+	*/
 	//System.out.println(mazo.getMazo());
 	
 	
@@ -175,7 +183,10 @@ public class Main {
 	System.out.println(b);
 	
 	*/
-	
+		
+		Scanner scan = new Scanner(System.in);
+		Menu prueba = new Menu();
+		prueba.menuPrincipal(scan);
 	
 	}
 	

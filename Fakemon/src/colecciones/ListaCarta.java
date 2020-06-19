@@ -13,6 +13,8 @@ import java.lang.String;
 
 import cartas.Carta;
 import cartas.Carta_basica;
+import cartas.Carta_epica;
+import cartas.Carta_legendaria;
 import interfaces.IColeccion;
 
 // Tiene todas las cartas del juego, a futuro se puede cambiar por un hash map
@@ -30,10 +32,10 @@ public class ListaCarta implements IColeccion{
 	}
 
 	public void agregarCarta(Carta e) {
-		if(comprobarExistencia(e) == false)
-		{
+		//if(comprobarExistencia(e) == false)
+		//{
 			getListaCarta().add(e);
-		}
+		//}
 	}
 
 	private boolean comprobarExistencia(Carta e) {	// comprueba la existencia con el objeto entero
@@ -179,6 +181,42 @@ public class ListaCarta implements IColeccion{
 		catch (ClassNotFoundException ex) {
 			ex.printStackTrace();
 		}
+	}
+	
+	public ListaCarta generarListaSeteadaAdmin() 		/// LISTA HARCODEADA PARA LLENAR EL ARCHIVO
+	{
+		String basicos[] = { "Bulbasaur", "Squirtle", "Charmander", "Caterpie", "Weedle", "Pidgey", "Rattata",
+				"Spearow", "Ekans", "Pikachu", "Sandshrew", "Nidoran", "Vulpix", "Jigglypuff", "Zubat", "Oddish",
+				"Paras", "Venonat", "Diglett", "Meowth", "Psyduck", "Mankey", "Growlithe", "Poliwag", "Abra", "Machop",
+				"Bellsprout", "Tentacool", "Geodude", "Ponyta" };
+
+		String epicos[] = { "Ivysaur", "Charmeleon", "Wartortle", "Metapod", "Kakuna", "Pidgeotto", "Raticate",
+				"Fearow", "Arbok", "Raichu", "Nidorina", "Ninetales", "Kadabra", "Golbat", "Gloom" };
+
+		String legendario[] = { "Charizard", "Blastoise", "Venusaur", "Butterfree", "Beedrill", "Pidgeot", "Nidoqueen",
+				"Vileplume", "Alakazam", "Mewtwo" };
+
+		ListaCarta archivocartas = new ListaCarta();
+
+		for (int i = 0; i < 30; i++) {
+			Carta_basica cb = new Carta_basica(i + 1, basicos[i]);
+			archivocartas.agregarCarta(cb);
+
+		}
+
+		for (int j = 0; j < 15; j++) {
+			int x = archivocartas.cantidad();
+			Carta_epica ce = new Carta_epica(x + 1, epicos[j]);
+			archivocartas.agregarCarta(ce);
+		}
+
+		for (int k = 0; k < 10; k++) {
+			int z = archivocartas.cantidad();
+			Carta_legendaria cl = new Carta_legendaria(z + 1, legendario[k]);
+			archivocartas.agregarCarta(cl);
+		}
+		
+		return archivocartas;
 	}
 	
 	

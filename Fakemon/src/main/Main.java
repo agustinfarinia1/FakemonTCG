@@ -8,21 +8,18 @@ import cartas.Carta;
 import cartas.Carta_basica;
 import cartas.Carta_epica;
 import cartas.Carta_legendaria;
-import cartas.ListaUsuario;
 import cartas.Usuario;
-import coleccion.ListaPersonas;
 import colecciones.ColeccionGenerica;
 import colecciones.ListaCarta;
 import colecciones.ListaCarta;
 import colecciones.Mano;
 import colecciones.Mazo;
-import main.Menu;
+
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		/*
 	String basicos[] = { "Bulbasaur", "Squirtle", "Charmander", "Caterpie", "Weedle", "Pidgey", "Rattata",
 						"Spearow", "Ekans", "Pikachu", "Sandshrew", "Nidoran", "Vulpix", "Jigglypuff", "Zubat", "Oddish",
 						"Paras", "Venonat", "Diglett", "Meowth", "Psyduck", "Mankey", "Growlithe", "Poliwag", "Abra", "Machop",
@@ -33,7 +30,40 @@ public class Main {
 
 	String legendario[] = { "Charizard", "Blastoise", "Venusaur", "Butterfree", "Beedrill", "Pidgeot", "Nidoqueen",
 							"Vileplume", "Alakazam", "Mewtwo" };
-		
+	
+	ListaCarta archivocartas = new ListaCarta();
+	
+
+	
+	for (int i=0; i<30; i++)
+	{
+		Carta_basica cb = new Carta_basica(i+1, basicos[i]);
+		archivocartas.agregarCarta(cb);
+	
+	}
+	
+	for (int j = 0; j<15; j++)
+	{
+		int x = archivocartas.cantidad();
+		Carta_epica ce = new Carta_epica(x+1, epicos[j]);
+		archivocartas.agregarCarta(ce);	
+	}
+	
+	for (int k = 0; k<10; k++)
+	{
+		int z = archivocartas.cantidad();
+		Carta_legendaria cl = new Carta_legendaria(z+1, legendario[k]);
+		archivocartas.agregarCarta(cl);	
+	}
+	
+	
+	//int cant = archivocartas.cantidad();
+	//System.out.println("soy cant" + cant);
+	
+	System.out.println(archivocartas.listar());
+	//System.out.println("Lista de cartas" + archivocartas.toString());
+	
+	/*
 	Carta_basica charmander1 = new Carta_basica(0001, "charmander");
 	Carta_basica charmander2 = new Carta_basica(0001, "charmander");
 	Carta_basica charmander3 = new Carta_basica(0001, "charmander");
@@ -184,9 +214,9 @@ public class Main {
 	
 	*/
 		
-		Scanner scan = new Scanner(System.in);
-		Menu prueba = new Menu();
-		prueba.menuPrincipal(scan);
+		//Scanner scan = new Scanner(System.in);
+		//Menu prueba = new Menu();
+		//prueba.menuPrincipal(scan);
 	
 	}
 	

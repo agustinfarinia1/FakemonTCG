@@ -6,6 +6,11 @@ public  class Carta_basica extends Carta implements Atacar{
 
 	public int ataqueEspecial1;
 
+	public Carta_basica()
+	{
+		
+	}
+	
 	
 	public Carta_basica(int id_Carta, String nombre_Carta) 
 	{

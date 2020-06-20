@@ -1,8 +1,8 @@
 package cartas;
 
-import interfaces.IAtacar;
+import interfaces.Atacar;
 
-public  class Carta_basica extends Carta implements IAtacar{
+public  class Carta_basica extends Carta implements Atacar{
 
 	public int ataqueEspecial1;
 

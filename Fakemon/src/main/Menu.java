@@ -32,7 +32,10 @@ public class Menu {
 	
 	public int tituloPrincipal()
 	{
-		System.out.println("\n1. CONECTARSE" + "\n2. REGISTRARSE" + "\n3. SALIR" + "\n4. TEMP. MOSTRAR USUARIOS REGISTRADOS");
+		System.out.println("\n1. CONECTARSE");
+		System.out.println("2. REGISTRARSE");
+		System.out.println("3. TEMP. MOSTRAR USUARIOS REGISTRADOS");
+		System.out.println("4. SALIR");
 		return Integer.parseInt(scan.nextLine());
 		
 	}
@@ -53,22 +56,17 @@ public class Menu {
 				break;
 				
 				case 3:
-				System.out.println("Saliendo...");
+				//lista.leerArchivoUsuario(); // "Muestra" los usuarios que están en el archivo
 				break;
 				
 				case 4:	
-					//lista.leerArchivoUsuario(); // "Muestra" los usuarios que están en el archivo
+					salir = 's';
+					System.out.println("Saliendo...");
 				break;
 				
 				default:
 				System.out.println("Opcion incorrecta.");
                 break;
-			}
-			System.out.println("quiere seguir en el programa ? S para Salir...");
-			salir = scan.nextLine().charAt(0);
-			if(salir == 's')
-			{
-				System.out.println("Saliendo...");
 			}
 		}
 	}

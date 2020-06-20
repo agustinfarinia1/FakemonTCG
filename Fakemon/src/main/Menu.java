@@ -3,12 +3,10 @@ package main;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
-
 import cartas.Carta;
 import cartas.ListaUsuario;
 import cartas.Usuario;
-import coleccion.ListaPersonas;
-import objetos.Persona;
+
 
 
 public class Menu {

@@ -28,7 +28,7 @@ public class ListaCarta implements IColeccion{
 	ArrayList <Carta> lista;
 	
 	public ListaCarta(){
-		setListaCarta(new ArrayList <Carta>());
+		setListaCarta();
 	}
 
 	public void agregarCarta(Carta e) {
@@ -118,8 +118,8 @@ public class ListaCarta implements IColeccion{
 		return lista;
 	}
 
-	public void setListaCarta(ArrayList<Carta> lista) {
-		this.lista = lista;
+	public void setListaCarta() {
+		this.lista = generarListaSeteadaAdmin();
 	}
 	
 	@Override
@@ -148,7 +148,7 @@ public class ListaCarta implements IColeccion{
 
 	public void GuardarLista() {	// guarda la lista en el archivo
 		try {
-
+			
 			FileOutputStream fileOutputStream = new FileOutputStream(nombreArchivoListaCartas);
 			ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 			for (int i = 0; i < cantidad(); i++) {
@@ -183,7 +183,7 @@ public class ListaCarta implements IColeccion{
 		}
 	}
 	
-	public ListaCarta generarListaSeteadaAdmin() 		/// LISTA HARCODEADA PARA LLENAR EL ARCHIVO
+	public ArrayList<Carta> generarListaSeteadaAdmin() 		/// LISTA HARCODEADA PARA LLENAR EL ARCHIVO
 	{
 		String basicos[] = { "Bulbasaur", "Squirtle", "Charmander", "Caterpie", "Weedle", "Pidgey", "Rattata",
 				"Spearow", "Ekans", "Pikachu", "Sandshrew", "Nidoran", "Vulpix", "Jigglypuff", "Zubat", "Oddish",
@@ -196,24 +196,24 @@ public class ListaCarta implements IColeccion{
 		String legendario[] = { "Charizard", "Blastoise", "Venusaur", "Butterfree", "Beedrill", "Pidgeot", "Nidoqueen",
 				"Vileplume", "Alakazam", "Mewtwo" };
 
-		ListaCarta archivocartas = new ListaCarta();
+		ArrayList<Carta> archivocartas = new ArrayList<Carta>();
 
 		for (int i = 0; i < 30; i++) {
 			Carta_basica cb = new Carta_basica(i + 1, basicos[i]);
-			archivocartas.agregarCarta(cb);
+			archivocartas.add(cb);
 
 		}
 
 		for (int j = 0; j < 15; j++) {
-			int x = archivocartas.cantidad();
+			int x = archivocartas.size();
 			Carta_epica ce = new Carta_epica(x + 1, epicos[j]);
-			archivocartas.agregarCarta(ce);
+			archivocartas.add(ce);
 		}
 
 		for (int k = 0; k < 10; k++) {
-			int z = archivocartas.cantidad();
+			int z = archivocartas.size();
 			Carta_legendaria cl = new Carta_legendaria(z + 1, legendario[k]);
-			archivocartas.agregarCarta(cl);
+			archivocartas.add(cl);
 		}
 		
 		return archivocartas;

@@ -20,48 +20,11 @@ public class Main {
 
 	public static void main(String[] args) {
 
-	String basicos[] = { "Bulbasaur", "Squirtle", "Charmander", "Caterpie", "Weedle", "Pidgey", "Rattata",
-						"Spearow", "Ekans", "Pikachu", "Sandshrew", "Nidoran", "Vulpix", "Jigglypuff", "Zubat", "Oddish",
-						"Paras", "Venonat", "Diglett", "Meowth", "Psyduck", "Mankey", "Growlithe", "Poliwag", "Abra", "Machop",
-						"Bellsprout", "Tentacool", "Geodude", "Ponyta" };
-
-	String epicos[] = { "Ivysaur", "Charmeleon", "Wartortle", "Metapod", "Kakuna", "Pidgeotto", "Raticate",
-						"Fearow", "Arbok", "Raichu", "Nidorina", "Ninetales", "Kadabra", "Golbat", "Gloom" };
-
-	String legendario[] = { "Charizard", "Blastoise", "Venusaur", "Butterfree", "Beedrill", "Pidgeot", "Nidoqueen",
-							"Vileplume", "Alakazam", "Mewtwo" };
+		ListaCarta nueva = new ListaCarta();
+		//System.out.println(nueva.listar());
+		//nueva.GuardarLista();
+		nueva.leerArchivo();
 	
-	ListaCarta archivocartas = new ListaCarta();
-	
-
-	
-	for (int i=0; i<30; i++)
-	{
-		Carta_basica cb = new Carta_basica(i+1, basicos[i]);
-		archivocartas.agregarCarta(cb);
-	
-	}
-	
-	for (int j = 0; j<15; j++)
-	{
-		int x = archivocartas.cantidad();
-		Carta_epica ce = new Carta_epica(x+1, epicos[j]);
-		archivocartas.agregarCarta(ce);	
-	}
-	
-	for (int k = 0; k<10; k++)
-	{
-		int z = archivocartas.cantidad();
-		Carta_legendaria cl = new Carta_legendaria(z+1, legendario[k]);
-		archivocartas.agregarCarta(cl);	
-	}
-	
-	
-	//int cant = archivocartas.cantidad();
-	//System.out.println("soy cant" + cant);
-	
-	System.out.println(archivocartas.listar());
-	//System.out.println("Lista de cartas" + archivocartas.toString());
 	
 	/*
 	Carta_basica charmander1 = new Carta_basica(0001, "charmander");

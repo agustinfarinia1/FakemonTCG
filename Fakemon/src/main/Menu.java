@@ -10,47 +10,65 @@ import cartas.Carta;
 public class Menu {
 
 	public static  Scanner scan = new Scanner(System.in);
-	private char salir = 's';
+	private char salir;
 	private int opcion;
 
 	
 	public Menu() {
-	
+		salir = 'x';	// por si justo el valor de salir es 's'
 	}
-
+	
+	public boolean verificarSalir(char salir)	// Verifica si el salir es correcto , no importa si es mayuscula
+	{
+		boolean verificacion = true;
+		if((String.valueOf(salir)).equalsIgnoreCase("s"))
+		{
+			verificacion = false;
+		}
+		return verificacion;
+	}
+	
+	
+	
+	public int tituloPrincipal()
+	{
+		System.out.println("\n1. CONECTARSE" + "\n2. REGISTRARSE" + "\n3. SALIR" + "\n4. TEMP. MOSTRAR USUARIOS REGISTRADOS");
+		return Integer.parseInt(scan.nextLine());
+		
+	}
+	
 	public void menuPrincipal()
 	{
-		
 		Usuario user = new Usuario();
-		
-		while((salir == 's') || (salir == 'S'))
+		while(verificarSalir(salir))
 		{
-			System.out.println("1. CONECTARSE" + "\n2. REGISTRARSE" + "\n3. SALIR" + "\n4. TEMP. MOSTRAR USUARIOS REGISTRADOS");
-			opcion = Integer.parseInt(scan.nextLine());
-			
-			switch(opcion)
+			switch(tituloPrincipal())	// devuelve la opcion elegida
 			{
 				case 1:
 				loginUser(user); // Va al método de logueo
-				
 				break;
-				
 				
 				case 2:	
 				registroUser(user); // Va al método de registro
-				
 				break;
 				
 				case 3:
 				System.out.println("Saliendo...");
-				
 				break;
 				
-				case 4:
-					
+				case 4:	
 					//lista.leerArchivoUsuario(); // "Muestra" los usuarios que están en el archivo
-				
 				break;
+				
+				default:
+				System.out.println("Opcion incorrecta.");
+                break;
+			}
+			System.out.println("quiere seguir en el programa ? S para Salir...");
+			salir = scan.nextLine().charAt(0);
+			if(salir == 's')
+			{
+				System.out.println("Saliendo...");
 			}
 		}
 	}

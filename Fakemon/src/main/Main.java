@@ -179,8 +179,8 @@ public class Main {
 		
 		
 		Menu prueba = new Menu();
+		//prueba.menuPrincipal();
 		prueba.menuPrincipal();
-	
 	}
 	
 }

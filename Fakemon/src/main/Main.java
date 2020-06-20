@@ -8,7 +8,7 @@ import cartas.Carta;
 import cartas.Carta_basica;
 import cartas.Carta_epica;
 import cartas.Carta_legendaria;
-import cartas.Usuario;
+
 import colecciones.ColeccionGenerica;
 import colecciones.ListaCarta;
 import colecciones.ListaCarta;
@@ -20,10 +20,10 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		ListaCarta nueva = new ListaCarta();
+		//ListaCarta nueva = new ListaCarta();
 		//System.out.println(nueva.listar());
 		//nueva.GuardarLista();
-		nueva.leerArchivo();
+		//nueva.leerArchivo();
 	
 	
 	/*
@@ -177,9 +177,9 @@ public class Main {
 	
 	*/
 		
-		//Scanner scan = new Scanner(System.in);
-		//Menu prueba = new Menu();
-		//prueba.menuPrincipal(scan);
+		
+		Menu prueba = new Menu();
+		prueba.menuPrincipal();
 	
 	}
 	

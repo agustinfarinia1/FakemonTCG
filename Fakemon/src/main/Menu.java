@@ -3,26 +3,23 @@ package main;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
+
+import Usuarios.Usuario;
 import cartas.Carta;
-import cartas.ListaUsuario;
-import cartas.Usuario;
-
-
 
 public class Menu {
 
-	static Scanner scan;
+	public static  Scanner scan = new Scanner(System.in);
 	private char salir = 's';
 	private int opcion;
-	ListaUsuario lista = new ListaUsuario();
+
 	
+	public Menu() {
 	
-	
-	
-	public void menuPrincipal(Scanner scan)
+	}
+
+	public void menuPrincipal()
 	{
-		
-		lista.archivoToListaUsuario(lista);
 		
 		Usuario user = new Usuario();
 		
@@ -51,7 +48,7 @@ public class Menu {
 				
 				case 4:
 					
-					lista.leerArchivoUsuario(); // "Muestra" los usuarios que están en el archivo
+					//lista.leerArchivoUsuario(); // "Muestra" los usuarios que están en el archivo
 				
 				break;
 			}
@@ -66,17 +63,15 @@ public class Menu {
 	
 	public void registroUser(Usuario user)
 	{
-		Scanner scan = new Scanner(System.in);
 		
-		System.out.println("Ingrese el nombre de usuario: ");
+		System.out.println("Ingrese el nombre de usuario: \n");
+
 		user.setNombreUsuario(scan.nextLine());
 		
-		System.out.println("Ingrese una contraseña: ");
+		System.out.println("Ingrese una contraseña: \n");
 		user.setContrasenya(scan.nextLine());
 		
-		lista.agregarUsuario(user); //agrega un usuario a la lista
-		
-		lista.listaToArchivoUsuario(lista.cantidadUsuarios());	// Escribe en el archivo la lista actual
+		System.out.println(user.toString());
 	}
 	
 	public void menuUsuario(Scanner scan) 

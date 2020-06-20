@@ -3,6 +3,7 @@ package colecciones;
 import java.util.ArrayList;
 
 import cartas.Carta;
+import interfaces.IArchivar;
 
 /**@author Axel
 *
@@ -10,7 +11,7 @@ import cartas.Carta;
 *	Mano y Mazo van a extender de esta, y a su vez van a trabajar con el atributo coleccion, ya que ambas usan arrayList.
 */
 
-public class Coleccion {
+public class Coleccion implements IArchivar {
 	
 	private ArrayList<Carta> coleccion;
 	
@@ -60,6 +61,27 @@ public class Coleccion {
 
 	public void setColeccion(ArrayList<Carta> coleccion) {
 		this.coleccion = coleccion;
+	}
+
+
+	@Override
+	public void leerArchivo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void guardarArchivo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void modificarArchivo() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

@@ -15,6 +15,7 @@ import cartas.Carta;
 import cartas.Carta_basica;
 import cartas.Carta_epica;
 import cartas.Carta_legendaria;
+import interfaces.IArchivar;
 import interfaces.IColeccion;
 
 // Tiene todas las cartas del juego, a futuro se puede cambiar por un hash map
@@ -22,7 +23,7 @@ import interfaces.IColeccion;
 // funciona como stock de cartas
 // se podria agregar un atributo disponible en carta para saber si la carta esta en un mazo o no.
 
-public class ListaCarta implements IColeccion{	
+public class ListaCarta implements IColeccion, IArchivar{	
 	
 	public static String nombreArchivoListaCartas = "listaCartas.dat";
 	ArrayList <Carta> lista;
@@ -146,7 +147,8 @@ public class ListaCarta implements IColeccion{
 		}
 	}
 
-	public void GuardarLista() {	// guarda la lista en el archivo
+	@Override
+	public void guardarArchivo() {	// guarda la lista en el archivo
 		try {
 			
 			FileOutputStream fileOutputStream = new FileOutputStream(nombreArchivoListaCartas);
@@ -160,6 +162,7 @@ public class ListaCarta implements IColeccion{
 		}
 	}
 
+	@Override
 	public void leerArchivo() // lee la informacion que esta en el archivo
 	{
 		try {
@@ -217,6 +220,12 @@ public class ListaCarta implements IColeccion{
 		}
 		
 		return archivocartas;
+	}
+
+	@Override
+	public void modificarArchivo() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

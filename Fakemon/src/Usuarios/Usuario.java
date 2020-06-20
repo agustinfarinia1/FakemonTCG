@@ -1,5 +1,6 @@
 package Usuarios;
 
+import colecciones.Coleccion;
 import colecciones.Mazo;
 
 public class Usuario {
@@ -7,8 +8,9 @@ public class Usuario {
 	private String idUsuario;
 	private String nombreUsuario;
 	private String contrasenya;
-	private Mazo mazo;
 	
+	private Mazo mazo;
+	Coleccion cartasganadas;
 	public Usuario()
 	{
 		

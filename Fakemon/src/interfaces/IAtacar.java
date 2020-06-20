@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface Atacar {
+public interface IAtacar {
 
 	public int tirarDados ();
 }

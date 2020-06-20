@@ -20,10 +20,10 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		//ListaCarta nueva = new ListaCarta();
+		ListaCarta nueva = new ListaCarta();
 		//System.out.println(nueva.listar());
 		//nueva.GuardarLista();
-		//nueva.leerArchivo();
+		nueva.leerArchivo();
 	
 	
 	/*
@@ -175,12 +175,12 @@ public class Main {
 	
 	System.out.println(b);
 	
-	*/
 		
 		
 		Menu prueba = new Menu();
 		prueba.menuPrincipal();
 	
+	 */
 	}
 	
 }

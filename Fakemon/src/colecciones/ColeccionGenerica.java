@@ -1,5 +1,7 @@
 package colecciones;
 
+import java.util.ArrayList;
+
 /**@author Axel
 *
 *	Esta clase pretende recibir distintos tipos de objetos, para generarles un hashMap y guardar dentro de el, por ejemplo un arrayList
@@ -11,6 +13,12 @@ package colecciones;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import cartas.Carta;
+
 import java.util.Set;
 
 public class ColeccionGenerica <T>{
@@ -56,11 +64,31 @@ public class ColeccionGenerica <T>{
 		return builder;
 	}
 
-	public HashMap<String, T> getHash() {
+	public HashMap<String, T> getHashMap() {
 		return hMap;
 	}
 
-	public void setHash(HashMap<String, T> hMap) {
+	public void setHashMap(HashMap<String, T> hMap) {
 		this.hMap = hMap;
+	}
+	
+	public JSONObject persistirColeccionEnJSONObject() throws JSONException
+	{
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("ColeccionGenerica", getHashMap()); 
+			return jsonObject;
+	}
+		
+	public void fromJSONObject(JSONObject jsonObject) throws JSONException
+	{
+		try {
+			HashMap<String, T> newHash;
+			setHashMap(newHash = (HashMap<String, T>) jsonObject.get("ColeccionGenerica"));
+			}
+		
+		catch(ClassCastException e) { /// le mandamos error de casteo, porque es lo que probablemente pueda suceder.
+			
+				System.out.println("Al igual que Coleccion, esto está medio en beta, asi que puede fallar. Si estas leyendo esto, asi es... ERROR 404 !");
+			}
 	}
 }

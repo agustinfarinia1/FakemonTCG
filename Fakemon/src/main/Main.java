@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import cartas.Carta;
 import cartas.Carta_basica;
 import cartas.Carta_epica;
@@ -14,6 +17,7 @@ import colecciones.ListaCarta;
 import colecciones.ListaCarta;
 import colecciones.Mano;
 import colecciones.Mazo;
+import utils.JsonUtiles;
 
 
 public class Main {
@@ -178,9 +182,53 @@ public class Main {
 	*/
 		
 		
-		Menu prueba = new Menu();
+		//Menu prueba = new Menu();
 		//prueba.menuPrincipal();
-		prueba.menuPrincipal();
+		//prueba.menuPrincipal();
+		
+	/*
+	 *  ACA PROBE EL PRIMER GUARDADO DE JSON EN ARCHIVO, CONVINANDO LA HERRAMIENTA DE COLECCION DE GUARDARSE A SI MISMO
+	 *  FUNCIONA BIEN, GUARDO 6 CARTAS Y USANDO EL METODO "persistirEnJSONObject" + las JsonUtiles del profe y su metodo "grabar" 
+	 *  PODEMOS GENERAR UN ARCHIVO QUE CONTIENE NUESTRA EXPORTACION A JSON !
+	 * 
+	 * 
+	 */
+		Carta_epica nuevaCarta2 = new Carta_epica(0002, "charmeleon");
+		//System.out.println(nuevaCarta2.toString());
+		
+		Carta_legendaria nuevaCarta3 = new Carta_legendaria(0003, "charizard");
+		//System.out.println(nuevaCarta3.toString());
+		
+		
+		Carta_basica nuevaCarta4 = new Carta_basica(0004, "pikachu");
+		//System.out.println(nuevaCarta4.toString());
+		
+		Carta_epica nuevaCarta5 = new Carta_epica(0005, "tauros");
+		//System.out.println(nuevaCarta5.toString());
+		
+		Carta_legendaria nuevaCarta6 = new Carta_legendaria(0006, "mewtwo");
+		//System.out.println(nuevaCarta6.toString());
+		
+		Mazo deck = new Mazo();
+		JSONArray aux = new JSONArray();
+		
+		deck.agregarCartaColeccion(nuevaCarta2);
+		deck.agregarCartaColeccion(nuevaCarta3);
+		deck.agregarCartaColeccion(nuevaCarta4);
+		deck.agregarCartaColeccion(nuevaCarta5);
+		deck.agregarCartaColeccion(nuevaCarta6);
+		
+		try {
+			aux.put(deck.persistirColeccionEnJSONObject());
+			JsonUtiles.grabar(aux);
+			System.out.println(JsonUtiles.leer());
+			
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		
 	}
 	
 }

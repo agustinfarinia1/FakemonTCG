@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import cartas.Carta;
 
-public class Booster extends Coleccion {
-
+public class Booster {
+	
 	public Booster() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	/*
 	 * Metodo que genera automaticamente un booster con 7 cartas (1 legendaria, 2 epicas, 4 basicas)

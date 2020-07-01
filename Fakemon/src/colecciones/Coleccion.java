@@ -15,85 +15,58 @@ import cartas.Carta;
 *	Le añadi el abstract, para que no se pueda instanciar una coleccion, sino mazo, mano, booster, etc.
 */
 
-public abstract class Coleccion {
+public class Coleccion <T>{
 	
-	private ArrayList<Carta> coleccion;
+	private ArrayList<T> coleccion;
 	
 	public Coleccion()
 	{
-		setColeccion(new ArrayList <Carta>());
+		setColeccion(new ArrayList <T>());
 	}
 
+	public ArrayList<T> getColeccion() {
+		return coleccion;
+	}
+
+	public void setColeccion() {
+		this.coleccion = new ArrayList<T>();
+	}
 	
-	public String listarColeccion() {
+	public void setColeccion(ArrayList<T> coleccion) {
+		this.coleccion = coleccion;
+	}
+	
+	public String listar() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Lista de Cartas:\n");
-		for(Carta c : getColeccion())
+		for(T obj : getColeccion())
 		{
-			builder.append(c.toString()+"\n");
+			builder.append(obj.toString()+"\n");
 			
 		}
 		return builder.toString();
 	}
 	//TODO antes de agregar las cartas, tendria que verificar en la lista si esta existe . ya hay un metodo de comprobacion, faltaria implementarlo
-	public void agregarCartaColeccion(Carta e) {
+	public void agregar(T e) {
 		getColeccion().add(e);
 	}
 
-	public void eliminarCartaColeccion(Carta c) {
+	public void eliminar(Carta c) {
 		getColeccion().remove(c);
 	}
 	
-	public int ObtenerCantidadColeccion() {
+	public int cantidadColeccion() {
 		return getColeccion().size();
 	}
 	
 	/// lista cartas mejora esto
-	public boolean existenciaColeccion(Object obj) {
+	public boolean existencia(Object obj) {
 		Carta c = (Carta) obj;
 		return getColeccion().contains(c);
 	}
-
+	
 	@Override
 	public String toString() {
-		return listarColeccion();
+		return listar();
 	}
-
-	public ArrayList<Carta> getColeccion() {
-		return coleccion;
-	}
-
-	public void setColeccion(ArrayList<Carta> coleccion) {
-		this.coleccion = coleccion;
-	}
-	
-	/// INTENTAMOS HACER PERSISTENCIA DE COLLECION, PARA QUE PUEDAN EXPORTARSE
-	
-	/// NOTA: Si tuvieramos un array de arrays de coleccion, preguntamos
-	/// preguntamos si nos puede devovler el JSONObject y eso lo podriamos meter en un JSONArray, para luego exportarlo o guardarlo en un archivo.
-	public JSONObject persistirColeccionEnJSONObject() throws JSONException
-	{
-		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("Coleccion", getColeccion()); /// Esta key se me hace rara, porque si le ponemos un mazo va a tirar "coleccion", evaluar luego si conviene poner un atributo de nombre o algo así!
-		return jsonObject;
-	}
-	
-	public JSONArray persistirColeccionEnJSONArray(JSONArray jsonArray, JSONObject jsonObject) throws JSONException
-		{
-			jsonArray.put(jsonObject);
-			return jsonArray;
-		}
-	public void fromJSONObject(JSONObject jsonObject) throws JSONException
-	{
-		try {
-			
-		ArrayList <Carta> array;
-		setColeccion(array = (ArrayList<Carta>) jsonObject.get("Coleccion"));
-		}
-		catch(ClassCastException e) { /// le mandamos error de casteo, porque es lo que probablemente pueda suceder.
-			
-			System.out.println("Intente traer un JSONObject, y convertirlo a un ArrayList del tipo carta (Aunque deberia funcionar, puesto que las demas colecciones que heredan de ella poseen arrayList de Carta, aunque nunca se sabe... Si esto acaba de pasar ERROR 404 ! Enterra tu oro capooo !");
-		}
-	}
-	
 }

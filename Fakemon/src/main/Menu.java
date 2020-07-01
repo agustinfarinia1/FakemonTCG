@@ -12,7 +12,6 @@ public class Menu {
 	public static  Scanner scan = new Scanner(System.in);
 	private char salir;
 
-	
 	public Menu() {
 		salir = 'x';	// por si justo el valor de salir es 's'
 	}	
@@ -50,7 +49,7 @@ public class Menu {
 				break;
 				
 				case 2:	
-				registroUser(user); // Va al método de registro
+				registroUser(user); // Tendria que Implementar una excepcion en el nombre y contrasenia
 				break;
 				
 				case 3:
@@ -76,9 +75,11 @@ public class Menu {
 			switch (opcionMenu(2))	// devuelve la opcion elegida y muestra el titulo del menu
 			{	
 				case 1:  	System.out.println("Bienvenido al Modo Campaña");
+							System.out.println("TODO");
 							break;
 							
 				case 2:		System.out.println("Bienvenido al Modo Multijugador Online");
+							System.out.println("TODO");
 							break;
 							
 				case 3:		System.out.println("Menu Editar Mazo");
@@ -93,7 +94,9 @@ public class Menu {
 							
 				case 0:		salir = 's';
 							System.out.println("Saliendo Menu Usuario...");
+							break;
 				default: 	System.out.println("Opcion incorrecta");
+							break;
 			} 
 		}
 			
@@ -117,10 +120,11 @@ public class Menu {
 							
 				case 4: 	System.out.println("Edita un mazo agregando o quitando cartas de el");
 							break;
-				case 0:
-					salir = 's';
-					System.out.println("saliendo Menu Editar Mazo...");
+				case 0:		salir = 's';
+							System.out.println("saliendo Menu Editar Mazo...");
+							break;
 				default: 	System.out.println("Opcion incorrecta");
+							break;
 			}  
 		}
 			
@@ -147,6 +151,7 @@ public class Menu {
 							break;
 							
 				default: 	System.out.println("Opcion incorrecta");
+							break;
 			}  
 		}
 			
@@ -219,7 +224,7 @@ public class Menu {
 	
 	public void tituloMenuUsuario()
 	{
-		System.out.println("Bienvenido a Fakemin TCG");
+		System.out.println("\nBienvenido a Fakemin TCG");
 		System.out.println("1.- Jugar modo Campaña (offline)");
 		System.out.println("2.- Jugar Online");
 		System.out.println("3.- Editar mi Mazo");
@@ -229,7 +234,7 @@ public class Menu {
 	
 	public void tituloMenuEditarMazo()
 	{
-		System.out.println("Editor de Mazos");
+		System.out.println("\nEditor de Mazos");
 		System.out.println("1.- Elegir Mazo Activo");
 		System.out.println("2.- Crear Mazo");
 		System.out.println("3.- Eliminar Mazo");
@@ -239,7 +244,7 @@ public class Menu {
 	
 	public void tituloMenuComprarBooster()
 	{
-		System.out.println("Vendedor Misterioso");
+		System.out.println("\nVendedor Misterioso");
 		System.out.println("1.- Comprar Booster");
 		System.out.println("2.- Vender Cartas");
 		System.out.println("3.- Ver Saldo actual");

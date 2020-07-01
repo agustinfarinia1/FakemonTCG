@@ -18,16 +18,26 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import cartas.Carta;
+import interfaces.IArchivar;
 
 import java.util.Set;
 
-public class ColeccionGenerica <T>{
+public class ColeccionGenerica <T> implements IArchivar{
 	
-	private HashMap<String, T> hMap;
+	private HashMap<String, T> hMap;	// CLave mazo y Mazo
 	
 	public ColeccionGenerica()
 	{
 		hMap = new HashMap<String, T>();
+		
+	}
+	
+	public HashMap<String, T> getHashMap() {
+		return hMap;
+	}
+
+	public void setHashMap(HashMap<String, T> hMap) {
+		this.hMap = hMap;
 	}
 	
 	public void añadir(String key, T elemento)
@@ -63,14 +73,6 @@ public class ColeccionGenerica <T>{
 		}
 		return builder;
 	}
-
-	public HashMap<String, T> getHashMap() {
-		return hMap;
-	}
-
-	public void setHashMap(HashMap<String, T> hMap) {
-		this.hMap = hMap;
-	}
 	
 	public JSONObject persistirColeccionEnJSONObject() throws JSONException
 	{
@@ -90,5 +92,23 @@ public class ColeccionGenerica <T>{
 			
 				System.out.println("Al igual que Coleccion, esto está medio en beta, asi que puede fallar. Si estas leyendo esto, asi es... ERROR 404 !");
 			}
+	}
+
+	@Override
+	public void guardarArchivo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void leerArchivo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modificarArchivo() {
+		// TODO Auto-generated method stub
+		
 	}
 }

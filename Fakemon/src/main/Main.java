@@ -210,25 +210,27 @@ public class Main {
 		//System.out.println(nuevaCarta6.toString());
 		
 		Mazo deck = new Mazo();
-		JSONArray aux = new JSONArray();
+		
+		JSONArray jsonArray = new JSONArray();
+		
+		ArrayList<Carta> otroArray = new ArrayList<Carta>();
 		
 		deck.agregarCartaColeccion(nuevaCarta2);
 		deck.agregarCartaColeccion(nuevaCarta3);
 		deck.agregarCartaColeccion(nuevaCarta4);
 		deck.agregarCartaColeccion(nuevaCarta5);
-		deck.agregarCartaColeccion(nuevaCarta6);
 		
 		try {
-			aux.put(deck.persistirColeccionEnJSONObject());
-			JsonUtiles.grabar(aux);
-			System.out.println(JsonUtiles.leer());
+			jsonArray = JsonUtiles.decodeJsonObject(deck.getColeccion());
+			//System.out.println(jsonArray.toString());
+			otroArray = JsonUtiles.fromJSONObject(jsonArray); /// aca hay un bug
+			System.out.println(otroArray.toString());
 			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
-		
+				
 	}
 	
 }

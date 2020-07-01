@@ -17,12 +17,38 @@ public  class Carta_legendaria extends Carta implements IAtacar{
 		ataqueEspecial3 = ataqueEspecial(10,5);	
 	}
 	
+	public Carta_legendaria()
+	{
+		
+	}
 	
 	public int getAtaqueEspecial1() 
 	{
 		return ataqueEspecial1;
 	}
 	
+	
+	
+	public int getAtaqueEspecial2() {
+		return ataqueEspecial2;
+	}
+
+	public void setAtaqueEspecial2(int ataqueEspecial2) {
+		this.ataqueEspecial2 = ataqueEspecial2;
+	}
+
+	public int getAtaqueEspecial3() {
+		return ataqueEspecial3;
+	}
+
+	public void setAtaqueEspecial3(int ataqueEspecial3) {
+		this.ataqueEspecial3 = ataqueEspecial3;
+	}
+
+	public void setAtaqueEspecial1(int ataqueEspecial1) {
+		this.ataqueEspecial1 = ataqueEspecial1;
+	}
+
 	public int ataqueEspecial (int max, int min)
 	{	
 		int value = getRandomInt(max, min);

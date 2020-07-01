@@ -15,7 +15,10 @@ public  class Carta_epica extends Carta implements IAtacar{
 		ataqueEspecial2 = ataqueEspecial(5,3);	
 	}
 	
-	
+	public Carta_epica()
+	{
+		
+	}
 	
 
 	public int getAtaqueEspecial1() 
@@ -30,6 +33,19 @@ public  class Carta_epica extends Carta implements IAtacar{
 	}
 	
 	
+	
+	public int getAtaqueEspecial2() {
+		return ataqueEspecial2;
+	}
+
+	public void setAtaqueEspecial2(int ataqueEspecial2) {
+		this.ataqueEspecial2 = ataqueEspecial2;
+	}
+
+	public void setAtaqueEspecial1(int ataqueEspecial1) {
+		this.ataqueEspecial1 = ataqueEspecial1;
+	}
+
 	@Override
 	public int tirarDados() 
 	{

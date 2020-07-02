@@ -178,21 +178,21 @@ public class Main {
 		deck.getMazo().agregar(nuevaCarta4);
 		deck.getMazo().agregar(nuevaCarta5);
 		
-<<<<<<< HEAD
+
 		try {
-			jsonArray = JsonUtiles.decodeJsonObject(deck.getMazo().getColeccion());
-			System.out.println(jsonArray.toString());
-			otroArray.setColeccion(JsonUtiles.fromJSONObject(jsonArray)); 
+		//	jsonArray = JsonUtiles.decodeJsonObject(deck.getMazo().getColeccion());
+		//	System.out.println(jsonArray.toString());
+		//	otroArray.setColeccion(JsonUtiles.fromJSONObject(jsonArray)); 
 			
-			System.out.println("A ver que onda esto...");
-			System.out.println(otroArray.toString());
-=======
+		//	System.out.println("A ver que onda esto...");
+		//	System.out.println(otroArray.toString());
+
 		//try {
 			//jsonArray = JsonUtiles.decodeJsonObject(deck.getMazo().getColeccion());
 			//System.out.println(jsonArray.toString());
 			//otroArray = JsonUtiles.fromJSONObject(jsonArray); /// aca hay un bug
 			//System.out.println(otroArray.toString());
->>>>>>> 20a1cb168e2c87d04a3e6c8a2fc543966989072b
+
 			
 		//} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -209,6 +209,10 @@ public class Main {
 		
 		//menu.menuUsuario();
 		
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
-	
 }

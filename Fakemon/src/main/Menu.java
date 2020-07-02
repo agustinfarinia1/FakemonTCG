@@ -220,7 +220,7 @@ public class Menu {
 	
 	public void tituloMenuUsuario()
 	{
-		System.out.println("\nBienvenido a Fakemin TCG");
+		System.out.println("\nBienvenido a Fakemon TCG");
 		System.out.println("1.- Jugar modo Campaña (offline)");
 		System.out.println("2.- Jugar Online");
 		System.out.println("3.- Editar mi Mazo");

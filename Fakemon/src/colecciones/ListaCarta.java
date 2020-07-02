@@ -35,6 +35,10 @@ public class ListaCarta implements IArchivar{
 	public void setListaCarta() {
 		this.lista = new Coleccion<Carta>();
 	}
+	
+	public void setListaCarta(Coleccion<Carta> listaCarta) {
+		this.lista = listaCarta;
+	}
 
 	public Coleccion<Carta> getListaCarta() {
 		return lista;
@@ -42,7 +46,9 @@ public class ListaCarta implements IArchivar{
 	
 	public void agregarCarta(Carta e) {
 		if(getListaCarta().existencia(e) == false)	// Seria para hacer la comprobacion de que no se pongan cartas iguales
+		{
 			getListaCarta().agregar(e);
+		}
 	}
 	
 	public boolean comprobarExistencia(String nombre) {	// comprueba existencia solo con el nombre
@@ -164,30 +170,42 @@ public class ListaCarta implements IArchivar{
 				"Vileplume", "Alakazam", "Mewtwo" };
 
 		Coleccion<Carta> archivocartas = new Coleccion<Carta>();
-
-		for (int i = 0; i < 30; i++) {
+		
+		for (int i = 0; i < basicos.length; i++) {
 			Carta_basica cb = new Carta_basica(i + 1, basicos[i]);
 			archivocartas.agregar(cb);
 
 		}
 
-		for (int j = 0; j < 15; j++) {
+		for (int j = 0; j < epicos.length; j++) {
 			int x = archivocartas.cantidadColeccion();
 			Carta_epica ce = new Carta_epica(x + 1, epicos[j]);
 			archivocartas.agregar(ce);
 		}
 
-		for (int k = 0; k < 10; k++) {
+		for (int k = 0; k < legendario.length; k++) {
 			int z = archivocartas.cantidadColeccion();
 			Carta_legendaria cl = new Carta_legendaria(z + 1, legendario[k]);
 			archivocartas.agregar(cl);
 		}
-		
 		return archivocartas;
+	}
+	
+	public boolean existenciaPorNombre(String nombre){
+		for(Carta c : getListaCarta().getColeccion())
+		{
+			if(c.getNombre_Carta().equalsIgnoreCase(nombre))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public ListaCarta generarListaSeteadaUser() 		/// LISTA HARCODEADA PARA LLENAR EL ARCHIVO
 	{
+		ListaCarta admin = new ListaCarta();
+		cargarLista(admin);
 		String basicos[] = { "Bulbasaur", "Squirtle", "Charmander", "Caterpie", "Weedle", "Pidgey", "Rattata",
 				"Spearow", "Ekans", "Pikachu", "Sandshrew", "Nidoran", "Vulpix", "Jigglypuff", "Zubat", "Oddish",
 				"Paras", "Venonat", "Diglett", "Meowth", "Psyduck", "Mankey", "Growlithe", "Poliwag", "Abra", "Machop",
@@ -201,19 +219,29 @@ public class ListaCarta implements IArchivar{
 
 		for (int i = 0; i < basicos.length; i++) {
 			Carta_basica cb = new Carta_basica(i + 1, basicos[i]);
-			archivocartas.agregarCarta(cb);
+			if(admin.existenciaPorNombre(cb.getNombre_Carta()))	// Si existe en la listaDeCartas del admi, se agrega
+			{
+				archivocartas.agregarCarta(cb);
+			}
+			
 		}
 
 		for (int j = 0; j < epicos.length; j++) {
 			int x = archivocartas.cantidad();
 			Carta_epica ce = new Carta_epica(x + 1, epicos[j]);
-			archivocartas.agregarCarta(ce);
+			if(admin.existenciaPorNombre(ce.getNombre_Carta())) // Si existe en la listaDeCartas del admi, se agrega
+			{
+				archivocartas.agregarCarta(ce);
+			}
 		}
 
 		for (int k = 0; k < legendario.length; k++) {
 			int z = archivocartas.cantidad();
 			Carta_legendaria cl = new Carta_legendaria(z + 1, legendario[k]);
-			archivocartas.agregarCarta(cl);
+			if(admin.existenciaPorNombre(cl.getNombre_Carta())) // Si existe en la listaDeCartas del admi, se agrega
+			{
+				archivocartas.agregarCarta(cl);
+			}
 		}
 		
 		return archivocartas;

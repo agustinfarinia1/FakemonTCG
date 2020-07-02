@@ -203,11 +203,7 @@ public class Main {
 		
 		System.out.println(usuario.toString());
 		
-		Menu menu = new Menu();
-		
 		System.out.println(usuario.getMilistaCartas().toString());
-		
-		//menu.menuUsuario();
 		
 		}
 		catch(Exception e)

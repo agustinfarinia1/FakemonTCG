@@ -1,9 +1,6 @@
 package colecciones;
 
-import java.util.ArrayList;
-
 import cartas.Carta;
-import colecciones.Mazo;
 
 public class Mano{
 	
@@ -27,7 +24,7 @@ public class Mano{
 			Carta carta = new Carta(); /// CREAMOS UN OBJETO PARA SETEARLE EL VALOR
 			int i = 0;
 			
-			if(i < mazo.getMazo().getColeccion().size()) /// COMPARAMOS EL TAMAÑO PARA NO PASARNOS
+			if(i < mazo.getMazo().cantidadColeccion()) /// COMPARAMOS EL TAMAÑO PARA NO PASARNOS
 			{
 				mazo.getMazo().getColeccion().get(i); /// TOMAMOS EL PRIMERO
 				carta = mazo.getMazo().getColeccion().get(i); /// LO GUARDAMOS EN UN OBJETO AUXILIAR
@@ -72,5 +69,8 @@ public class Mano{
 		return mano;
 	}
 
-	
+	@Override
+	public String toString() {
+		return getMano().toString();
+	}
 }

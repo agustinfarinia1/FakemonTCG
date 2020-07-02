@@ -23,33 +23,26 @@ import interfaces.IColeccion;
 // funciona como stock de cartas
 // se podria agregar un atributo disponible en carta para saber si la carta esta en un mazo o no.
 
-public class ListaCarta implements IColeccion , IArchivar{	
+public class ListaCarta implements IArchivar{	
 	
 	public static String nombreArchivoListaCartas = "listaCartas.dat";
-	ArrayList <Carta> lista;
+	Coleccion <Carta> lista;
 	
 	public ListaCarta(){
 		setListaCarta();
 	}
-
-	public void agregarCarta(Carta e) {
-		//if(comprobarExistencia(e) == false)
-		//{
-			getListaCarta().add(e);
-		//}
+	
+	public void setListaCarta() {
+		this.lista = new Coleccion<Carta>();
 	}
 
-	private boolean comprobarExistencia(Carta e) {	// comprueba la existencia con el objeto entero
-		boolean existencia = false;
-		int i = 0;
-		while((existencia == false)&&(i < cantidad())) {
-			Carta aux = obtenerCartaPorPosicion(i);
-			if(aux.equals(e)){
-				existencia = true;
-			}
-			i++;
-		}
-		return existencia;
+	public Coleccion<Carta> getListaCarta() {
+		return lista;
+	}
+	
+	public void agregarCarta(Carta e) {
+		if(getListaCarta().existencia(e) == false)	// Seria para hacer la comprobacion de que no se pongan cartas iguales
+			getListaCarta().agregar(e);
 	}
 	
 	public boolean comprobarExistencia(String nombre) {	// comprueba existencia solo con el nombre
@@ -66,61 +59,34 @@ public class ListaCarta implements IColeccion , IArchivar{
 	}
 	
 	public void eliminarCarta(String nombre) {	// elimina la carta de la lista
-		if(comprobarExistencia(nombre) == true)
-		{
-			for(Carta carta : lista)
-			{
-				if(nombre.equalsIgnoreCase(carta.getNombre_Carta())){
-					lista.remove(carta);
-				}
-			}
-		}
+		getListaCarta().eliminar(obtenerCartaPorNombre(nombre));
 	}
 	
 	public Carta obtenerCartaPorPosicion(int posicion) {	// obtiene la carta de esa posicion
-		return lista.get(posicion);
+		return lista.getColeccion().get(posicion);
 	}
 	
-	@Override
-	public String listar() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Lista de Cartas:\n");
-		for(Carta c : getListaCarta())
+	public Carta obtenerCartaPorNombre(String nombre) {	// obtiene la carta de esa posicion
+		Carta aux = null;
+		if(comprobarExistencia(nombre) == true)
 		{
-				builder.append(c.toString()+"\n");			
-		}
-		return builder.toString();
-	}
-	
-	@Override
-	public int cantidad() {
-		return getListaCarta().size();
-	}
-
-	@Override
-	public boolean existencia(Object obj) {	// no use existencia porque hay que implementarle el equals
-		//TODO agregarle el equals para que funcione correctamente
-		boolean existencia = false;
-		Carta aux = (Carta) obj;
-		int i = 0;
-		Carta carta;
-		while((existencia == false)&&(i < cantidad()))
-		{
-			carta = obtenerCartaPorPosicion(i);
-			if(carta.equals(aux) == true)
+			for(Carta c : getListaCarta().getColeccion())
 			{
-				existencia = true;
+				if(c.getNombre_Carta().equals(nombre))
+				{
+					aux = c;
+				}
 			}
 		}
-		return existencia;
+		return aux;
 	}
 	
-	public ArrayList<Carta> getListaCarta() {
-		return lista;
+	public String listar() {
+		return getListaCarta().listar();
 	}
-
-	public void setListaCarta() {
-		this.lista = generarListaSeteadaAdmin();
+	
+	public int cantidad() {
+		return getListaCarta().cantidadColeccion();
 	}
 	
 	@Override
@@ -184,7 +150,7 @@ public class ListaCarta implements IColeccion , IArchivar{
 		}
 	}
 	
-	public ArrayList<Carta> generarListaSeteadaAdmin() 		/// LISTA HARCODEADA PARA LLENAR EL ARCHIVO
+	public Coleccion<Carta> generarListaSeteadaAdmin() 		/// LISTA HARCODEADA PARA LLENAR EL ARCHIVO
 	{
 		String basicos[] = { "Bulbasaur", "Squirtle", "Charmander", "Caterpie", "Weedle", "Pidgey", "Rattata",
 				"Spearow", "Ekans", "Pikachu", "Sandshrew", "Nidoran", "Vulpix", "Jigglypuff", "Zubat", "Oddish",
@@ -197,24 +163,24 @@ public class ListaCarta implements IColeccion , IArchivar{
 		String legendario[] = { "Charizard", "Blastoise", "Venusaur", "Butterfree", "Beedrill", "Pidgeot", "Nidoqueen",
 				"Vileplume", "Alakazam", "Mewtwo" };
 
-		ArrayList<Carta> archivocartas = new ArrayList<Carta>();
+		Coleccion<Carta> archivocartas = new Coleccion<Carta>();
 
 		for (int i = 0; i < 30; i++) {
 			Carta_basica cb = new Carta_basica(i + 1, basicos[i]);
-			archivocartas.add(cb);
+			archivocartas.agregar(cb);
 
 		}
 
 		for (int j = 0; j < 15; j++) {
-			int x = archivocartas.size();
+			int x = archivocartas.cantidadColeccion();
 			Carta_epica ce = new Carta_epica(x + 1, epicos[j]);
-			archivocartas.add(ce);
+			archivocartas.agregar(ce);
 		}
 
 		for (int k = 0; k < 10; k++) {
-			int z = archivocartas.size();
+			int z = archivocartas.cantidadColeccion();
 			Carta_legendaria cl = new Carta_legendaria(z + 1, legendario[k]);
-			archivocartas.add(cl);
+			archivocartas.agregar(cl);
 		}
 		
 		return archivocartas;
@@ -225,10 +191,4 @@ public class ListaCarta implements IColeccion , IArchivar{
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
-	
-	
-	
-	
 }

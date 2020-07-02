@@ -226,8 +226,8 @@ public class Main {
 		try {
 			jsonArray = JsonUtiles.decodeJsonObject(deck.getMazo().getColeccion());
 			//System.out.println(jsonArray.toString());
-			otroArray = JsonUtiles.fromJSONObject(jsonArray); /// aca hay un bug
-			System.out.println(otroArray.toString());
+			//otroArray = JsonUtiles.fromJSONObject(jsonArray); /// aca hay un bug
+			//System.out.println(otroArray.toString());
 			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

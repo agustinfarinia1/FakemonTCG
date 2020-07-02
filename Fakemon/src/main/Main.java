@@ -11,7 +11,7 @@ import cartas.Carta;
 import cartas.Carta_basica;
 import cartas.Carta_epica;
 import cartas.Carta_legendaria;
-
+import colecciones.Coleccion;
 import colecciones.ColeccionGenerica;
 import colecciones.ListaCarta;
 import colecciones.ListaCarta;
@@ -28,9 +28,7 @@ public class Main {
 		//System.out.println(nueva.listar());
 		//nueva.GuardarLista();
 		//nueva.leerArchivo();
-	
-	
-	/*
+
 	Carta_basica charmander1 = new Carta_basica(0001, "charmander");
 	Carta_basica charmander2 = new Carta_basica(0001, "charmander");
 	Carta_basica charmander3 = new Carta_basica(0001, "charmander");
@@ -38,26 +36,11 @@ public class Main {
 	Carta_basica charmander5 = new Carta_basica(0001, "charmander");
 	Carta_basica charmander6 = new Carta_basica(0001, "charmander");
 	
-	
-	//System.out.println(nuevaCarta1.toString());
-	
 	Carta_epica nuevaCarta2 = new Carta_epica(0002, "charmeleon");
-	//System.out.println(nuevaCarta2.toString());
-	
-	Carta_legendaria nuevaCarta3 = new Carta_legendaria(0003, "charizard");
-	//System.out.println(nuevaCarta3.toString());
-	
-	
-	Carta_basica nuevaCarta4 = new Carta_basica(0004, "pikachu");
-	//System.out.println(nuevaCarta4.toString());
-	
-	Carta_epica nuevaCarta5 = new Carta_epica(0005, "tauros");
-	//System.out.println(nuevaCarta5.toString());
-	
+	Carta_legendaria nuevaCarta3 = new Carta_legendaria(0003, "charizard");	
+	Carta_basica nuevaCarta4 = new Carta_basica(0004, "pikachu");	
+	Carta_epica nuevaCarta5 = new Carta_epica(0005, "tauros");	
 	Carta_legendaria nuevaCarta6 = new Carta_legendaria(0006, "mewtwo");
-	//System.out.println(nuevaCarta6.toString());
-	
-	
 	
 	// Ejemplo de como funcionaria el stock de cartas
 	
@@ -67,55 +50,47 @@ public class Main {
 	
 	//esto seria como se carga en el archivo , como ya esta cargado no es necesario
 	  
-	
-	lista.agregarCarta(nuevaCarta1);
 	lista.agregarCarta(nuevaCarta2);
 	lista.agregarCarta(nuevaCarta3);
 	lista.agregarCarta(nuevaCarta4);
 	lista.agregarCarta(nuevaCarta5);
 	lista.agregarCarta(nuevaCarta6);
-	*/
 	
-//	System.out.println(lista.listar());
+	//System.out.println(lista.listar());
 	
 	//lista.GuardarLista();	// guarda la lista en el archivo
-	//
 	//lista.leerArchivo();	// ve los datos del archivo
 	
+	//ESTO ERA PARA PROBAR COMO DESORDENAR UN MAZO Y FUNCIONA, ASI QUE LO HICIMOS CANCION... DIGO DIGO FUNCION.
 	
+	/*
 	
-	/* ESTO ERA PARA PROBAR COMO DESORDENAR UN MAZO Y FUNCIONA, ASI QUE LO HICIMOS CANCION... DIGO DIGO FUNCION.
-	//ArrayList array = new ArrayList();
 	Mazo mazo = new Mazo();
 	
-	mazo.agregarCarta(nuevaCarta1);
-	mazo.agregarCarta(nuevaCarta2);
-	mazo.agregarCarta(nuevaCarta3);
-	//mazo.agregarCarta(nuevaCarta4);
+	mazo.agregarCartaMazo(nuevaCarta2);
+	mazo.agregarCartaMazo(nuevaCarta3);
+	mazo.agregarCartaMazo(nuevaCarta4);
 	
 	System.out.println("ORDENADO: \n");
 	
 	System.out.println(mazo.listar());
 	
-	Collections.shuffle(mazo.getMazo());
+	mazo.desordenarMazo(mazo);
 	
 	System.out.println("DESORDENADO: \n");
-	System.out.println(mazo.listar());
+	System.out.println(mazo.toString());
 	
 	*/
 	
-	/*
 	Mazo mazo = new Mazo();
 	Mano mano = new Mano();
 	
-	Carta carta = new Carta();
 	
+	mazo.agregarCartaMazo(nuevaCarta4);
+	mazo.agregarCartaMazo(nuevaCarta2);
+	mazo.agregarCartaMazo(nuevaCarta3);
+
 	
-	mazo.agregarCartaColeccion(nuevaCarta4);
-	mazo.agregarCartaColeccion(nuevaCarta2);
-	mazo.agregarCartaColeccion(nuevaCarta3);
-	
-	*/
 	//System.out.println(mazo.getMazo());
 	
 	
@@ -125,14 +100,13 @@ public class Main {
 	//System.out.println("CARTA SOLITA: \n");
 	//System.out.println(carta.toString());
 	
-	
 	/*
-	mazo.agregarCarta(nuevaCarta1);
-	mazo.agregarCarta(nuevaCarta2);
-	mazo.agregarCarta(nuevaCarta3);
-	mazo.agregarCarta(nuevaCarta4);
-	mazo.agregarCarta(nuevaCarta5);
-	mazo.agregarCarta(nuevaCarta6);
+	
+	mazo.agregarCartaMazo(nuevaCarta2);
+	mazo.agregarCartaMazo(nuevaCarta3);
+	mazo.agregarCartaMazo(nuevaCarta4);
+	mazo.agregarCartaMazo(nuevaCarta5);
+	mazo.agregarCartaMazo(nuevaCarta6);
 	
 	mazo.desordenarMazo(mazo);
 	
@@ -151,35 +125,30 @@ public class Main {
 	System.out.println("\n");
 	
 	System.out.println(mazo.getMazo());
+	
 	*/
 	
-	/*
-	ArrayList<Carta> charmander = new ArrayList<Carta>();
+	Coleccion<Carta> charmander = new Coleccion<Carta>();
 	
-	charmander.add(charmander1);
-	charmander.add(charmander2);
-	charmander.add(charmander3);
-	charmander.add(charmander4);
-	charmander.add(charmander5);
-	charmander.add(charmander6);
+	charmander.agregar(charmander1);
+	charmander.agregar(charmander2);
+	charmander.agregar(charmander3);
+	charmander.agregar(charmander4);
+	charmander.agregar(charmander5);
+	charmander.agregar(charmander6);
 	
-	ColeccionGenerica<ArrayList<Carta>> prueba = new ColeccionGenerica<ArrayList<Carta>>();
-	ColeccionGenerica<ArrayList<Carta>> mazo1 = new ColeccionGenerica<ArrayList<Carta>>();
+	ColeccionGenerica<Coleccion<Carta>> prueba = new ColeccionGenerica<Coleccion<Carta>>();
+	ColeccionGenerica<Coleccion<Carta>> mazo1 = new ColeccionGenerica<Coleccion<Carta>>();
 	
-	mazo1.añadir("m0001", mazo.getColeccion()); /// hashmap de mazo
+	mazo1.añadir("m0001", mazo.getMazo()); /// hashmap de mazo
 	
 	
 	
 	prueba.añadir("0001", charmander); /// hashmap de cartas exactamente iguales
 	
-	StringBuilder b = new StringBuilder();
-	
-	//b = prueba.listarHashMap(prueba.getHash());
-	b = mazo1.listarHashMap(mazo1.getHash());
-	
-	System.out.println(b);
-	
-	*/
+	//System.out.println(prueba.listarHashMap(prueba.getHashMap())); // MUESTRA LA COLECCION DE CARTAS QUE TIENE	
+	//System.out.println(mazo1.listarHashMap(mazo1.getHashMap()));	// Muestra el mazo que tiene adentro
+
 		
 		
 		//Menu prueba = new Menu();
@@ -192,23 +161,7 @@ public class Main {
 	 *  PODEMOS GENERAR UN ARCHIVO QUE CONTIENE NUESTRA EXPORTACION A JSON !
 	 * 
 	 * 
-	 */
-		Carta_epica nuevaCarta2 = new Carta_epica(0002, "charmeleon");
-		//System.out.println(nuevaCarta2.toString());
-		
-		Carta_legendaria nuevaCarta3 = new Carta_legendaria(0003, "charizard");
-		//System.out.println(nuevaCarta3.toString());
-		
-		
-		Carta_basica nuevaCarta4 = new Carta_basica(0004, "pikachu");
-		//System.out.println(nuevaCarta4.toString());
-		
-		Carta_epica nuevaCarta5 = new Carta_epica(0005, "tauros");
-		//System.out.println(nuevaCarta5.toString());
-		
-		Carta_legendaria nuevaCarta6 = new Carta_legendaria(0006, "mewtwo");
-		//System.out.println(nuevaCarta6.toString());
-		
+	 */	
 		
 		
 		/// TENGO UN NULL POINTER ACA FARI :C
@@ -216,7 +169,7 @@ public class Main {
 		
 		JSONArray jsonArray = new JSONArray();
 		
-		ArrayList<Carta> otroArray = new ArrayList<Carta>();
+		Coleccion<Carta> otroArray = new Coleccion<Carta>();
 		
 		deck.getMazo().agregar(nuevaCarta2);
 		deck.getMazo().agregar(nuevaCarta3);
@@ -225,7 +178,7 @@ public class Main {
 		
 		try {
 			jsonArray = JsonUtiles.decodeJsonObject(deck.getMazo().getColeccion());
-			//System.out.println(jsonArray.toString());
+			System.out.println(jsonArray.toString());
 			//otroArray = JsonUtiles.fromJSONObject(jsonArray); /// aca hay un bug
 			//System.out.println(otroArray.toString());
 			

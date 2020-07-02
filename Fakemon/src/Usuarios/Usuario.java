@@ -1,5 +1,6 @@
 package Usuarios;
 
+import cartas.Carta;
 import colecciones.Coleccion;
 import colecciones.Mazo;
 
@@ -9,11 +10,11 @@ public class Usuario {
 	private String nombreUsuario;
 	private String contrasenya;
 	private Mazo mazo;
-	private Coleccion milistaCartas;
+	private Coleccion<Carta> milistaCartas;
 	
 	public Usuario()
 	{
-		
+		setListaCartas();
 	}
 	
 	public Usuario (String nombreUsuario , String contrasenya)
@@ -30,6 +31,13 @@ public class Usuario {
 		this.mazo = mazo;
 	}
 	
+	private void setListaCartas() {
+		this.milistaCartas = new Coleccion<Carta>();
+	}
+	
+	public Coleccion<Carta> getMilistaCartas() {
+		return milistaCartas;
+	}
 	
 	public String getIdUsuario() {
 		return idUsuario;
@@ -61,12 +69,6 @@ public class Usuario {
 		return "Usuario [idUsuario=" + idUsuario + ", nombreUsuario=" + nombreUsuario + ", contrasenya=" + contrasenya
 				+ ", mazo=" + mazo + "]";
 	}
-	
-	
-	
-	
-	
-	
 }
 
 

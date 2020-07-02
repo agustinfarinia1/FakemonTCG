@@ -1,9 +1,9 @@
 package cartas;
 
 public class Ataque {
-	String nombre_ataque;
-	int poder_ataque;
-	int costo;
+	private String nombre_ataque;
+	private int poder_ataque;
+	private int costo;
 	
 	public Ataque()
 	{

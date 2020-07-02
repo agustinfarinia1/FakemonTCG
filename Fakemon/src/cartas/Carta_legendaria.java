@@ -4,9 +4,9 @@ import interfaces.IAtacar;
 
 public  class Carta_legendaria extends Carta implements IAtacar{
 
-	public int ataqueEspecial1;
-	public int ataqueEspecial2;
-	public int ataqueEspecial3;
+	private int ataqueEspecial1;
+	private int ataqueEspecial2;
+	private int ataqueEspecial3;
 	
 	
 	public Carta_legendaria(int id_Carta, String nombre_Carta) 

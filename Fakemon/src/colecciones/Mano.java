@@ -4,7 +4,7 @@ import cartas.Carta;
 
 public class Mano{
 	
-	Coleccion <Carta> mano;
+	private Coleccion <Carta> mano;
 	
 	public Mano() {
 		setMano();

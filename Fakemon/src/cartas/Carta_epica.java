@@ -4,8 +4,8 @@ import interfaces.IAtacar;
 
 public  class Carta_epica extends Carta implements IAtacar{
 
-	public int ataqueEspecial1;
-	public int ataqueEspecial2;
+	private int ataqueEspecial1;
+	private int ataqueEspecial2;
 
 	
 	public Carta_epica(int id_Carta, String nombre_Carta) 

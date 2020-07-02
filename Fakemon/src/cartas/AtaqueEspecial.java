@@ -1,7 +1,7 @@
 package cartas;
 
 public class AtaqueEspecial extends Ataque{
-	int valor_dado;
+	private int valor_dado;
 	
 	public AtaqueEspecial(){
 		super();

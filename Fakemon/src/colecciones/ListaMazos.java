@@ -3,7 +3,7 @@ package colecciones;
 import java.util.ArrayList;
 
 public class ListaMazos extends ColeccionGenerica<Mazo>{
-	ArrayList<Mazo> listaMazos;
+	private ArrayList<Mazo> listaMazos;
 	
 	public ListaMazos() {
 		setListaMazos();
@@ -12,6 +12,4 @@ public class ListaMazos extends ColeccionGenerica<Mazo>{
 	public void setListaMazos() {
 		this.listaMazos = new ArrayList<Mazo>();
 	}
-	
-	
 }

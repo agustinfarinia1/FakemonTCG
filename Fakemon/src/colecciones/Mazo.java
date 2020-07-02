@@ -5,7 +5,7 @@ import cartas.Carta;
 
 public class Mazo{
 	
-	Coleccion <Carta> mazo;
+	private Coleccion <Carta> mazo;
 
 	/// METODO QUE DESORDENA UN MAZO Y SE SIRVE DE COLLECTION.shuffle
 	public Mazo() {

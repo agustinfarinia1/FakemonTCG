@@ -7,6 +7,7 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import Usuarios.Usuario;
 import cartas.Carta;
 import cartas.Carta_basica;
 import cartas.Carta_epica;
@@ -176,17 +177,27 @@ public class Main {
 		deck.getMazo().agregar(nuevaCarta4);
 		deck.getMazo().agregar(nuevaCarta5);
 		
-		try {
-			jsonArray = JsonUtiles.decodeJsonObject(deck.getMazo().getColeccion());
-			System.out.println(jsonArray.toString());
+		//try {
+			//jsonArray = JsonUtiles.decodeJsonObject(deck.getMazo().getColeccion());
+			//System.out.println(jsonArray.toString());
 			//otroArray = JsonUtiles.fromJSONObject(jsonArray); /// aca hay un bug
 			//System.out.println(otroArray.toString());
 			
-		} catch (JSONException e) {
+		//} catch (JSONException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-				
+			//e.printStackTrace();
+		//}
+		
+		Usuario usuario = new Usuario();
+		
+		System.out.println(usuario.toString());
+		
+		Menu menu = new Menu();
+		
+		System.out.println(usuario.getMilistaCartas().toString());
+		
+		//menu.menuUsuario();
+		
 	}
 	
 }

@@ -38,7 +38,7 @@ public class Coleccion <T>{
 	
 	public String listar() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Lista de Cartas:\n");
+		builder.append("\nLista de Cartas:\n");
 		for(T obj : getColeccion())
 		{
 			builder.append(obj.toString()+"\n");

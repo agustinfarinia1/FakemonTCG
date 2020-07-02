@@ -185,6 +185,39 @@ public class ListaCarta implements IArchivar{
 		
 		return archivocartas;
 	}
+	
+	public ListaCarta generarListaSeteadaUser() 		/// LISTA HARCODEADA PARA LLENAR EL ARCHIVO
+	{
+		String basicos[] = { "Bulbasaur", "Squirtle", "Charmander", "Caterpie", "Weedle", "Pidgey", "Rattata",
+				"Spearow", "Ekans", "Pikachu", "Sandshrew", "Nidoran", "Vulpix", "Jigglypuff", "Zubat", "Oddish",
+				"Paras", "Venonat", "Diglett", "Meowth", "Psyduck", "Mankey", "Growlithe", "Poliwag", "Abra", "Machop",
+				"Bellsprout", "Tentacool", "Geodude", "Ponyta" };
+
+		String epicos[] = { "Ivysaur", "Charmeleon", "Wartortle", "Metapod", "Kakuna", "Pidgeotto", "Raticate"};
+
+		String legendario[] = { "Charizard", "Blastoise", "Venusaur"};
+
+		ListaCarta archivocartas = new ListaCarta();
+
+		for (int i = 0; i < basicos.length; i++) {
+			Carta_basica cb = new Carta_basica(i + 1, basicos[i]);
+			archivocartas.agregarCarta(cb);
+		}
+
+		for (int j = 0; j < epicos.length; j++) {
+			int x = archivocartas.cantidad();
+			Carta_epica ce = new Carta_epica(x + 1, epicos[j]);
+			archivocartas.agregarCarta(ce);
+		}
+
+		for (int k = 0; k < legendario.length; k++) {
+			int z = archivocartas.cantidad();
+			Carta_legendaria cl = new Carta_legendaria(z + 1, legendario[k]);
+			archivocartas.agregarCarta(cl);
+		}
+		
+		return archivocartas;
+	}
 
 	@Override
 	public void modificarArchivo() {

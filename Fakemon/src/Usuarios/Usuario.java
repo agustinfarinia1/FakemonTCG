@@ -1,50 +1,87 @@
 package Usuarios;
 
-import cartas.Carta;
-import colecciones.Coleccion;
+import colecciones.ListaCarta;
 import colecciones.Mazo;
 
 public class Usuario {
 	
+	public static int idValor = 1;
 	private String idUsuario;
 	private String nombreUsuario;
 	private String contrasenya;
 	private Mazo mazo;
-	private Coleccion<Carta> milistaCartas;
+	private ListaCarta milistaCartas;
+	private int monedas;
 	
 	public Usuario()
 	{
+		idUsuario = (String.valueOf(aumentarValorId()));
+		setNombreUsuario("");
+		setContrasenya("");
 		setListaCartas();
+		setMonedas(20);
+		setMazo();
+		milistaCartas = getMilistaCartas().generarListaSeteadaUser();
 	}
 	
 	public Usuario (String nombreUsuario , String contrasenya)
 	{
-		this.nombreUsuario = nombreUsuario;
-		this.contrasenya = contrasenya;
+		idUsuario = (String.valueOf(aumentarValorId()));
+		setNombreUsuario(nombreUsuario);
+		setContrasenya(contrasenya);
+		setListaCartas();
+		setMonedas(20);
+		setMazo();
+		milistaCartas = getMilistaCartas().generarListaSeteadaUser();
 	}
 	
-	public Usuario(String idUsuario, String nombreUsuario, String contrasenya, Mazo mazo) {
-		super();
-		this.idUsuario = idUsuario;
-		this.nombreUsuario = nombreUsuario;
-		this.contrasenya = contrasenya;
+	public Usuario(String nombreUsuario, String contrasenya, Mazo mazo) {
+		idUsuario = (String.valueOf(aumentarValorId()));
+		setNombreUsuario(nombreUsuario);
+		setContrasenya(contrasenya);
+		setListaCartas();
+		setMonedas(20);
+		setMazo(mazo);
+		milistaCartas = getMilistaCartas().generarListaSeteadaUser();
+	}
+	
+	
+	private void setMazo() {
+		this.mazo = new Mazo();
+	}
+	
+	private void setMazo(Mazo mazo) {
 		this.mazo = mazo;
 	}
 	
-	private void setListaCartas() {
-		this.milistaCartas = new Coleccion<Carta>();
+	private int aumentarValorId() {
+		return idValor++;
 	}
 	
-	public Coleccion<Carta> getMilistaCartas() {
+	private void setListaCartas() {
+		this.milistaCartas = new ListaCarta();
+	}
+	
+	private void setListaCartas(ListaCarta lista) {
+		this.milistaCartas = lista;
+	}
+
+	public void setIdUsuario(String idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+	
+	public void setMonedas(int monedas) {
+		this.monedas = monedas;
+	}
+	
+	public ListaCarta getMilistaCartas() {
 		return milistaCartas;
 	}
 	
 	public String getIdUsuario() {
 		return idUsuario;
 	}
-	public void setIdUsuario(String idUsuario) {
-		this.idUsuario = idUsuario;
-	}
+	
 	public String getNombreUsuario() {
 		return nombreUsuario;
 	}
@@ -60,14 +97,14 @@ public class Usuario {
 	public Mazo getMazo() {
 		return mazo;
 	}
-	public void setMazo(Mazo mazo) {
-		this.mazo = mazo;
+	
+	public int getMonedas() {
+		return monedas;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "Usuario [idUsuario=" + idUsuario + ", nombreUsuario=" + nombreUsuario + ", contrasenya=" + contrasenya
-				+ ", mazo=" + mazo + "]";
+		return "[idUsuario=" + idUsuario + ", nombreUsuario=" + nombreUsuario + ", contrasenya=" + contrasenya + mazo + "]";
 	}
 }
 

@@ -4,7 +4,7 @@ import interfaces.IAtacar;
 
 public  class Carta_basica extends Carta implements IAtacar{
 
-	public int ataqueEspecial1;
+	private int ataqueEspecial1;
 
 	public Carta_basica()
 	{

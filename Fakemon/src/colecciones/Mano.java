@@ -18,7 +18,11 @@ public class Mano{
 		return mano;
 	}
 
-	/// FUNCION QUE DEVUELVE LA PRIMERA CARTA DE NUESTRO MAZO. RECIBIMOS UN MAZO CARGADO
+	/**
+	 * Metodo que roba una carta del mazo, la elimina del mismo y la devuelve.
+	 * @param Mazo
+	 * @return Carta
+	 */
 	public Carta robarUnaCarta(Mazo mazo) 
 		{
 			Carta carta = new Carta(); /// CREAMOS UN OBJETO PARA SETEARLE EL VALOR
@@ -32,7 +36,13 @@ public class Mano{
 			}
 			return carta; /// DEVOLVEMOS
 		}
-		
+	
+	/**
+	 * Este metodo roba 1 sola carta, y la lleva a la mano.
+	 * @param mano
+	 * @param mazo
+	 * @return Mano
+	 */
 	public Mano cartaEnMano(Mano mano, Mazo mazo)
 	/// recibimos nuestra mano, recibimos un mazo, y la cantidad de cartas que tenemos en la mano.
 	{
@@ -44,13 +54,18 @@ public class Mano{
 		if((cantidad < 5) && (mazo.getMazo().cantidadColeccion() != 0)) /// preguntamos si nuestra cantidad de cartas es menor a 5 (el total) y si el mazo aun posee cartas
 		{
 			carta = robarUnaCarta(mazo);
-			mazo.getMazo().eliminar(carta);
 			mano.getMano().agregar(carta);
 			cantidad++;
 		}
 		return mano;
 	}
 	
+	/**
+	 * Este metodo genera una mano de cartas inicial para el usuario.
+	 * @param mano
+	 * @param mazo
+	 * @return Mano
+	 */
 	public Mano manoInicial(Mano mano, Mazo mazo) /// igual a cartaEnMano, pero en un bucle para conseguir una mano inicial para el jugador.
 	
 	{

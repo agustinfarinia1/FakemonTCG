@@ -2,14 +2,6 @@ package colecciones;
 
 import java.util.ArrayList;
 
-/**@author Axel
-*
-*	Esta clase pretende recibir distintos tipos de objetos, para generarles un hashMap y guardar dentro de el, por ejemplo un arrayList
-*   De esta manera podemos por ejemplo asociar a una key un arrayList de cartas exactamente iguales, para que sea mas facil borrarlas.
-*   Agregar luego un id a cada carta que este en nuestro stock para poder borrarlas.
-*   O tambien, asignarle a una key (que podria ser el id de un usuario) varios mazos diferentes, de esta manera tendriamos varios mazos para un usuario. 
-*/
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
@@ -22,9 +14,17 @@ import interfaces.IArchivar;
 
 import java.util.Set;
 
+/**@author Axel
+*
+*	Esta clase pretende recibir distintos tipos de objetos, para generarles un hashMap y guardar dentro de el, por ejemplo un arrayList
+*   De esta manera podemos por ejemplo asociar a una key un arrayList de cartas exactamente iguales, para que sea mas facil borrarlas.
+*   Agregar luego un id a cada carta que este en nuestro stock para poder borrarlas.
+*   O tambien, asignarle a una key (que podria ser el id de un usuario) varios mazos diferentes, de esta manera tendriamos varios mazos para un usuario. 
+*/
+
 public class ColeccionGenerica <T> implements IArchivar{
 	
-	private HashMap<String, T> hMap;	// CLave mazo y Mazo
+	private HashMap<String, T> hMap;
 	
 	public ColeccionGenerica()
 	{

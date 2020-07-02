@@ -29,7 +29,7 @@ import cartas.Carta_legendaria;
 public class JsonUtiles 
 {
 	/**
-	 * Algunas constantes de ayuda
+	 * Algunas constantes de ayuda para decodificar
 	 */
 	public static final String NOMBRECARTA = "Nombre de Carta";
 	public static final String IDCARTA = "ID Carta";
@@ -41,7 +41,10 @@ public class JsonUtiles
 	public static final String ATAQUEBASE = "Ataque Base";
 	
 	
-	
+	/**
+	 * Funcion del profe que nos sirve para escribir un jsonArray a archivo
+	 * @param JSONArray array
+	 */
 	public static void grabar(JSONArray array) {
 		try {
 			FileWriter file = new FileWriter("test.json");
@@ -53,7 +56,11 @@ public class JsonUtiles
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * Funcion del profe que nos ayuda a leer un archivo de json guardado
+	 * @return String 
+	 */
 	public static String leer() 
 	{
 		String contenido = "";
@@ -68,7 +75,14 @@ public class JsonUtiles
 		return contenido;
 	}
 	
-	/// esta funcion tiene un bug, mañana la miro.
+	/**
+	 * Esta funcion nos sirve para decodificar un JSONArray y transformarlo en una coleccion de cartas 
+	 * El codigo recorre todo el json, y por cada indice del array, que contiene un jsonObject, lo decodifica
+	 * Y lo transforma en una carta; Dicha carta se guarda en una coleccion de cartas.
+	 * @param JSONArray jarray
+	 * @return ArrayList<Carta> 
+	 * @throws JSONException
+	 */
 	public static ArrayList<Carta> fromJSONObject(JSONArray jarray) throws JSONException
 	{
 		ArrayList<Carta> aux = new ArrayList<Carta>();
@@ -85,30 +99,45 @@ public class JsonUtiles
 		
 		return aux;
 	}
+	
+	/**
+	 * Esta carta trabaja con un jsonObject, lo decodifica y le asigna sus valores a una carta, preguntandose si 
+	 * los datos que contiene pertenecen a una carta basica, epica o legandaria.
+	 * @param JSONObject jobj
+	 * @return Carta carta
+	 * @throws JSONException
+	 */
 	public static Carta decodeCartaFromJSONObject(JSONObject jobj) throws JSONException
 	{
 		Carta c = new Carta();
 		
-		c.setVida(jobj.getInt(VIDA));
-		c.setAtaqueBase(jobj.getInt(ATAQUEBASE));
-		c.setId_Carta(jobj.getInt(IDCARTA));
-		c.setNombre_Carta(jobj.getString(NOMBRECARTA));
-		c.setRareza(jobj.getString(RAREZA));
-		
-		if(c.getRareza().equalsIgnoreCase("basico"))
+		if(jobj.getString(RAREZA).equalsIgnoreCase("basico"))
 		{
 			Carta_basica b = new Carta_basica();
-			b = (Carta_basica)c;
+			System.out.println("Sera que entro aca2?");
+			
+			b.setVida(jobj.getInt(VIDA));
+			b.setAtaqueBase(jobj.getInt(ATAQUEBASE));
+			b.setId_Carta(jobj.getInt(IDCARTA));
+			b.setNombre_Carta(jobj.getString(NOMBRECARTA));
+			b.setRareza(jobj.getString(RAREZA));
 			
 			b.setAtaqueEspecial1(jobj.getInt(ATAQUEESPECIAL1));
 			
 			return b;
 		}
 		
-		if(c.getRareza().equalsIgnoreCase("epico"))
+		if(jobj.getString(RAREZA).equalsIgnoreCase("epico"))
 		{
 			Carta_epica e = new Carta_epica();
-			e = (Carta_epica)c;
+			System.out.println("Sera que entro aca3?");
+			
+			
+			e.setVida(jobj.getInt(VIDA));
+			e.setAtaqueBase(jobj.getInt(ATAQUEBASE));
+			e.setId_Carta(jobj.getInt(IDCARTA));
+			e.setNombre_Carta(jobj.getString(NOMBRECARTA));
+			e.setRareza(jobj.getString(RAREZA));
 			
 			e.setAtaqueEspecial1(jobj.getInt(ATAQUEESPECIAL1));
 			e.setAtaqueEspecial2(jobj.getInt(ATAQUEESPECIAL2));
@@ -116,10 +145,15 @@ public class JsonUtiles
 			return e;
 		}
 		
-		if(c.getRareza().equalsIgnoreCase("legendario"))
+		if(jobj.getString(RAREZA).equalsIgnoreCase("legendario"))
 		{
 			Carta_legendaria l = new Carta_legendaria();
-			l = (Carta_legendaria)c;
+			
+			l.setVida(jobj.getInt(VIDA));
+			l.setAtaqueBase(jobj.getInt(ATAQUEBASE));
+			l.setId_Carta(jobj.getInt(IDCARTA));
+			l.setNombre_Carta(jobj.getString(NOMBRECARTA));
+			l.setRareza(jobj.getString(RAREZA));
 			
 			l.setAtaqueEspecial1(jobj.getInt(ATAQUEESPECIAL1));
 			l.setAtaqueEspecial2(jobj.getInt(ATAQUEESPECIAL2));

@@ -14,7 +14,6 @@ import cartas.Carta_legendaria;
 import colecciones.Coleccion;
 import colecciones.ColeccionGenerica;
 import colecciones.ListaCarta;
-import colecciones.ListaCarta;
 import colecciones.Mano;
 import colecciones.Mazo;
 import utils.JsonUtiles;
@@ -164,7 +163,9 @@ public class Main {
 	 */	
 		
 		
-		/// TENGO UN NULL POINTER ACA FARI :C
+		/**
+		 *  quedo joya esto
+		 */
 		Mazo deck = new Mazo();
 		
 		JSONArray jsonArray = new JSONArray();
@@ -179,8 +180,10 @@ public class Main {
 		try {
 			jsonArray = JsonUtiles.decodeJsonObject(deck.getMazo().getColeccion());
 			System.out.println(jsonArray.toString());
-			//otroArray = JsonUtiles.fromJSONObject(jsonArray); /// aca hay un bug
-			//System.out.println(otroArray.toString());
+			otroArray.setColeccion(JsonUtiles.fromJSONObject(jsonArray)); 
+			
+			System.out.println("A ver que onda esto...");
+			System.out.println(otroArray.toString());
 			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

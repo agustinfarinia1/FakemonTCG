@@ -151,18 +151,4 @@ public  class Carta implements Serializable{
 		return existencia;
 	}
 	
-	/// 	VOY A TRABAJAR CON ESTO DESPUES, NO BORRAR !
-	/*
-	 *
-	 * public JSONObject toJSON() throws JSONException
-	{
-		JSONObject jsonObject = new JSONObject();
-		jsonObject.put(NOMBRE_CARTA, getCarta());
-		jsonObject.put(NOMBRE_COLOR, getColor());
-		jsonObject.put("palo", getPalo());
-		return jsonObject;
-	}
-	 * 
-	 * 
-	 */
 }

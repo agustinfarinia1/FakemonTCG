@@ -31,6 +31,11 @@ public  class Carta_basica extends Carta implements IAtacar{
 	}
 	
 	
+	public void setAtaqueEspecial1(int ataqueEspecial1) {
+		this.ataqueEspecial1 = ataqueEspecial1;
+	}
+
+
 	@Override
 	public int tirarDados() 
 	{

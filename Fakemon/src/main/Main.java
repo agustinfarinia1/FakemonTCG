@@ -209,19 +209,22 @@ public class Main {
 		Carta_legendaria nuevaCarta6 = new Carta_legendaria(0006, "mewtwo");
 		//System.out.println(nuevaCarta6.toString());
 		
+		
+		
+		/// TENGO UN NULL POINTER ACA FARI :C
 		Mazo deck = new Mazo();
 		
 		JSONArray jsonArray = new JSONArray();
 		
 		ArrayList<Carta> otroArray = new ArrayList<Carta>();
 		
-		deck.agregarCartaColeccion(nuevaCarta2);
-		deck.agregarCartaColeccion(nuevaCarta3);
-		deck.agregarCartaColeccion(nuevaCarta4);
-		deck.agregarCartaColeccion(nuevaCarta5);
+		deck.getMazo().agregar(nuevaCarta2);
+		deck.getMazo().agregar(nuevaCarta3);
+		deck.getMazo().agregar(nuevaCarta4);
+		deck.getMazo().agregar(nuevaCarta5);
 		
 		try {
-			jsonArray = JsonUtiles.decodeJsonObject(deck.getColeccion());
+			jsonArray = JsonUtiles.decodeJsonObject(deck.getMazo().getColeccion());
 			//System.out.println(jsonArray.toString());
 			otroArray = JsonUtiles.fromJSONObject(jsonArray); /// aca hay un bug
 			System.out.println(otroArray.toString());

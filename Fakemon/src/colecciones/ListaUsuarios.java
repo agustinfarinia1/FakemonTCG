@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.HashSet;
 
 import Usuarios.Usuario;
@@ -15,7 +16,7 @@ import Usuarios.Usuario;
  *  el logueo y registrar los usuarios nuevos, se hizo con hashMap para mejor proteccion a la hora de registrar
  */
 
-public class ListaUsuarios {
+public class ListaUsuarios implements Serializable{
 	public static String nombreArchivoListaUsuarios = "listaUsuarios.dat";
 	private HashSet <Usuario> lista;
 	
@@ -48,7 +49,7 @@ public class ListaUsuarios {
 		return false;
 	}
 	
-	public void eliminarCarta(String nombre) {	// elimina la carta de la lista
+	public void eliminarUsuario(String nombre) {	// elimina la carta de la lista
 		getListaUsuario().remove(obtenerUsuarioPorNombre(nombre));
 	}
 	

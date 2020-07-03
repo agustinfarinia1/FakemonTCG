@@ -1,10 +1,11 @@
 package Usuarios;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 import exception.UserException;
 
-public class ListaUsuarios {
+public class ListaUsuarios implements Serializable{
 
 	HashMap<String, Usuario> listaUser;
 

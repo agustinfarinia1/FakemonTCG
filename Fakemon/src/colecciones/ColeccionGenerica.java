@@ -1,5 +1,6 @@
 package colecciones;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import java.util.HashMap;
@@ -22,7 +23,7 @@ import java.util.Set;
 *   O tambien, asignarle a una key (que podria ser el id de un usuario) varios mazos diferentes, de esta manera tendriamos varios mazos para un usuario. 
 */
 
-public class ColeccionGenerica <T> implements IArchivar{
+public class ColeccionGenerica <T> implements IArchivar,Serializable{
 	
 	private HashMap<String, T> hMap;
 	

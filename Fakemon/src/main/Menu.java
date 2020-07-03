@@ -94,11 +94,11 @@ public class Menu {
 			switch (opcionMenu(2))	// devuelve la opcion elegida y muestra el titulo del menu
 			{	
 				case 1:  	System.out.println("Bienvenido al Modo Campaña");
-							System.out.println("PROCIMAMENTE");
+							System.out.println("PROXIMAMENTE");
 							break;
 							
 				case 2:		System.out.println("Bienvenido al Modo Multijugador Online");
-							System.out.println("PROCIMAMENTE");
+							System.out.println("PROXIMAMENTE");
 							break;
 							
 				case 3:		System.out.println("Menu Editar Mazo");

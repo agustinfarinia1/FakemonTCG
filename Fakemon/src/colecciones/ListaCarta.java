@@ -39,6 +39,7 @@ public class ListaCarta implements IArchivar{
 	
 	public void setListaCarta() {
 		this.lista = new Coleccion<Carta>();
+		
 	}
 	
 	public void setListaCarta(Coleccion<Carta> listaCarta) {
@@ -47,6 +48,11 @@ public class ListaCarta implements IArchivar{
 
 	public Coleccion<Carta> getListaCarta() {
 		return lista;
+	}
+	
+	public void devolvemeUnaLista()
+	{
+		this.lista = generarListaSeteadaAdmin();
 	}
 	
 	public void agregarCarta(Carta e) {
@@ -179,14 +185,15 @@ public class ListaCarta implements IArchivar{
 			ex.printStackTrace();
 		}
 	}
-	
-	/**
+
+
 	 * Este metodo genera una lista hardcodeada para llenar el archivo,
 	 * lo llena de cartas de diferentes tipos
 	 * 
 	 * @return
 	 */
 	public Coleccion<Carta> generarListaSeteadaAdmin() 		/// LISTA HARCODEADA PARA LLENAR EL ARCHIVO
+
 	{
 		String basicos[] = { "Bulbasaur", "Squirtle", "Charmander", "Caterpie", "Weedle", "Pidgey", "Rattata",
 				"Spearow", "Ekans", "Pikachu", "Sandshrew", "Nidoran", "Vulpix", "Jigglypuff", "Zubat", "Oddish",
@@ -218,6 +225,9 @@ public class ListaCarta implements IArchivar{
 			Carta_legendaria cl = new Carta_legendaria(z + 1, legendario[k]);
 			archivocartas.agregar(cl);
 		}
+
+		System.out.println("entre aca" + archivocartas.listar());
+
 		return archivocartas;
 	}
 	
@@ -249,20 +259,29 @@ public class ListaCarta implements IArchivar{
 
 		for (int i = 0; i < basicos.length; i++) {
 			Carta_basica cb = new Carta_basica(i + 1, basicos[i]);
+
+			archivocartas.agregarCarta(cb);
+
 			if(admin.existenciaPorNombre(cb.getNombre_Carta()))	// Si existe en la listaDeCartas del admi, se agrega
 			{
 				archivocartas.agregarCarta(cb);
 			}
+
 			
 		}
 
 		for (int j = 0; j < epicos.length; j++) {
 			int x = archivocartas.cantidad();
 			Carta_epica ce = new Carta_epica(x + 1, epicos[j]);
+
+			archivocartas.agregarCarta(ce);
+			
+
 			if(admin.existenciaPorNombre(ce.getNombre_Carta())) // Si existe en la listaDeCartas del admi, se agrega
 			{
 				archivocartas.agregarCarta(ce);
 			}
+
 		}
 
 		for (int k = 0; k < legendario.length; k++) {

@@ -8,11 +8,11 @@ import Usuarios.Usuario;
  * Excepcion para que el usuario deba tener un nombre minimo de 8 caracteres.
  */
 
-public class ErrorRegistroUser extends Exception{
+public class UserException extends Exception{
 	
 	private String msg;
 	
-	public ErrorRegistroUser(String msg)
+	public UserException(String msg)
 	{
 		super(msg);	
 		this.msg = msg;

@@ -1,5 +1,6 @@
 package colecciones;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
@@ -15,7 +16,7 @@ import cartas.Carta;
 *	Le añadi el abstract, para que no se pueda instanciar una coleccion, sino mazo, mano, booster, etc.
 */
 
-public class Coleccion <T>{
+public class Coleccion <T> implements Serializable{
 	
 	private ArrayList<T> coleccion;
 	

@@ -2,7 +2,7 @@ package Usuarios;
 
 import java.util.HashMap;
 
-import exception.ErrorRegistroUser;
+import exception.UserException;
 
 public class ListaUsuarios {
 
@@ -16,7 +16,7 @@ public class ListaUsuarios {
 		//this.listaUser = listaUser;
 	}
 	
-	public void AgregarUsuario (Usuario nuevo) throws ErrorRegistroUser
+	public void AgregarUsuario (Usuario nuevo) throws UserException
 	{
 		if (!listaUser.containsKey(nuevo.getIdUsuario()))
 		{
@@ -24,7 +24,7 @@ public class ListaUsuarios {
 		}
 		else
 		{
-			throw new ErrorRegistroUser("El ingresado");
+			throw new UserException("El ingresado");
 		}
 		
 	}

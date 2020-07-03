@@ -3,12 +3,13 @@ import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
 import cartas.Carta;
 
-public class Mazo{
+public class Mazo implements Serializable{
 	public static String nombreArchivoListaCartas = "listaCartas.dat";
 	
 	private Coleccion <Carta> mazo;

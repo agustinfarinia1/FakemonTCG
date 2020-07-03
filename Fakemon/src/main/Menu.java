@@ -3,7 +3,8 @@ package main;
 import java.util.Scanner;
 import Usuarios.Usuario;
 import colecciones.ListaUsuarios;
-import exception.ExceptionUsuario;
+import exception.UserException;
+import utils.UserUtils;
 
 public class Menu {
 
@@ -40,14 +41,15 @@ public class Menu {
 		Usuario user = new Usuario();
 		ListaUsuarios listaUsuario = new ListaUsuarios();
 		listaUsuario.cargarLista();
+		UserUtils userUtiles = new UserUtils();
 		while(verificarSalir(salir))
 		{
 			switch(opcionMenu(1))	// devuelve la opcion elegida y muestra el titulo del menu
 			{
 				case 1:
 				try {
-					loginUsuario(listaUsuario);
-				} catch (ExceptionUsuario e) {
+					userUtiles.loginUsuario(listaUsuario);
+				} catch (UserException e) {
 					// TODO Auto-generated catch block
 					System.out.println(e.getMessage());
 				} // Va al método de logueo
@@ -55,8 +57,8 @@ public class Menu {
 				
 				case 2:	
 				try {
-					registroUser(user,listaUsuario); // Tendria que Implementar una excepcion en el nombre y contrasenia			
-				} catch(ExceptionUsuario e)
+					userUtiles.registroUser(user,listaUsuario); // Tendria que Implementar una excepcion en el nombre y contrasenia			
+				} catch(UserException e)
 				{
 					System.out.println(e.getMessage());
 				}
@@ -165,97 +167,6 @@ public class Menu {
 		}
 			
 	}
-	
-	//				METODOS MENU PRINCIPAL				//	Metodos de Menu principal
-	
-	public void loginUsuario(ListaUsuarios listaUsuario) throws ExceptionUsuario
-	{
-		String nombre;
-		String contrasenia;
-		
-		System.out.println("Ingrese el nombre de usuario: \n");
-		nombre = scan.nextLine();
-		
-		if(nombre.equalsIgnoreCase(""))
-		{
-			throw new ExceptionUsuario("El nombre de usuario está vacio ");
-		}
-		else if (nombre.length() <= 8)
-		{
-			throw new ExceptionUsuario("El nombre de usuario debe superar como minimo ocho caracteres");
-		}
-		
-		System.out.println("Ingrese una contraseña: \n");
-		contrasenia = scan.nextLine();
-		
-		if(contrasenia.equalsIgnoreCase(""))
-		{
-			throw new ExceptionUsuario("La contraseña está vacia");
-		} 
-		else if (contrasenia.length() <= 8)
-		{
-			throw new ExceptionUsuario("La contraseña debe superar como minimo ocho caracteres");
-		}
-		
-		if((listaUsuario.obtenerUsuarioPorNombreYContrasenia(nombre,contrasenia)) != null)
-		{
-			menuUsuario(listaUsuario.obtenerUsuarioPorNombreYContrasenia(nombre,contrasenia));
-		}
-		else
-		{
-			throw new ExceptionUsuario("Este usuario no esta registrado.");
-		}
-		
-	}
-	
-	/**
-	 * Metodo que registra un usuario.
-	 * @param user
-	 * @throws ExceptionUsuario
-	 */
-	public void registroUser(Usuario user,ListaUsuarios listaUsuario) throws ExceptionUsuario
-	{
-		System.out.println("Ingrese el nombre de usuario: \n");
-		user.setNombreUsuario(scan.nextLine());
-		
-		if(user.getNombreUsuario().equalsIgnoreCase(""))
-		{
-			throw new ExceptionUsuario("El nombre de usuario está vacio ");
-		}
-		else if (user.getNombreUsuario().length() <= 8)
-		{
-			throw new ExceptionUsuario("El nombre de usuario debe superar como minimo ocho caracteres");
-		}
-		
-		System.out.println("Ingrese una contraseña: \n");
-		user.setContrasenya(scan.nextLine());
-		
-		if(user.getContrasenya().equalsIgnoreCase(""))
-		{
-			throw new ExceptionUsuario("La contraseña está vacia");
-		} 
-		else if (user.getContrasenya().length() <= 8)
-		{
-			throw new ExceptionUsuario("La contraseña debe superar como minimo ocho caracteres");
-		}
-		
-		if(listaUsuario.obtenerUsuarioPorNombre(user.getNombreUsuario()) == null)	// Si no existe un usuario con ese nombre
-		{
-			listaUsuario.agregarUsuario(user);
-			listaUsuario.guardarArchivo();
-		}
-		else
-		{
-			throw new ExceptionUsuario("Ya existe un usuario con ese nombre.");
-		}
-	}
-	
-	/**
-	 * Usamos este metodo, para comparar los campos de nombre y contraseña con el del archivo de usuarios.
-	 * @return Usuario
-	 * @throws ExceptionUsuario
-	 */
-	
 	//				METODOS MENU USUARIO				//	Metodos de Menu Usuario
 	
 	//				METODOS MENU PRINCIPAL				//	Metodos de Menu Principal

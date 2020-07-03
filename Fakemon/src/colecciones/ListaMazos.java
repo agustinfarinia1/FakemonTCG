@@ -1,9 +1,11 @@
 package colecciones;
 
+import java.io.Serializable;
+
 import Usuarios.Usuario;
 import exception.ListaMazosException;
 
-public class ListaMazos {
+public class ListaMazos implements Serializable{
 	private ColeccionGenerica<Mazo> listaMazos;
 	private int cantidadMazos;
 	
@@ -49,7 +51,7 @@ public class ListaMazos {
 	public Mazo mazoActivo(String nombreMazo,Usuario usuario) {
 		eliminarMazo(usuario.getMazoActivo().getNombre(),usuario.getMazoActivo());
 		//listaMazos.añadir(usuario.getMazoActivo().getNombre(),usuario.getMazoActivo()// Se le saca el activo al otro
-		listaMazos.existenciaHashMap(nombreMazo).setActivo(true);	// y se le pone al nuevo
+		listaMazos.existenciaHashMap(nombreMazo);	// y se le pone al nuevo
 		System.out.println(getListaMazos().toString());
 		return 	getListaMazos().existenciaHashMap(nombreMazo);	// retorna para que lo guarde el usuario
 	}

@@ -1,5 +1,5 @@
 package colecciones;
-
+///////////////////////////////////////////////////////////
 import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -34,6 +34,7 @@ public class ListaCarta implements IArchivar{
 	
 	public ListaCarta(){
 		setListaCarta();
+		System.out.println("SAca esto de aacaaaaaaaaaaa");
 	}
 	
 	public void setListaCarta() {
@@ -65,6 +66,7 @@ public class ListaCarta implements IArchivar{
 			}
 			i++;
 		}
+		System.out.println("SAca esto de aacaaaaaaaaaaa");
 		return existencia;
 	}
 	

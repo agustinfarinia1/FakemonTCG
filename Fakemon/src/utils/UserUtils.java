@@ -42,6 +42,7 @@ public class UserUtils {
 		return usuario;
 	}
 	
+	
 	/**
 	 * Metodo que registra un usuario.
 	 * @param user

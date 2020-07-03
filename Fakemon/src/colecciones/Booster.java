@@ -1,5 +1,5 @@
 package colecciones;
-
+////////////////////////////////////////////////////////////////////////////
 import java.util.Collections;
 import cartas.Carta;
 
@@ -68,6 +68,8 @@ public class Booster {
 				listaportipo.agregar(aux);
 			}
 		}
+		System.out.println("saca esto");
 		return listaportipo;
+		
 	}
 }

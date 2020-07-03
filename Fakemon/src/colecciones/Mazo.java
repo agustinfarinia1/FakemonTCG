@@ -12,12 +12,23 @@ import cartas.Carta;
 public class Mazo implements Serializable{
 	public static String nombreArchivoListaCartas = "listaCartas.dat";
 	
+	private String nombre;
 	private Coleccion <Carta> mazo;
+	private boolean activo;
 
 
-	public Mazo()
+	public Mazo()	// Constructor para el inicial
 	{
+		setNombre("Mazo Inicial");
 		setMazo();
+		setMazoInicial();
+		setActivo(true);
+	}
+	public Mazo(String nombre)
+	{
+		setNombre(nombre);
+		setMazo();
+		setActivo(false);
 	}
 	/*
 	 * Getters y Setters de Mazo
@@ -28,6 +39,34 @@ public class Mazo implements Serializable{
 		this.mazo = new Coleccion<Carta>();
 	}
 	
+	public void setMazoInicial()
+	{
+		this.mazo = getMazoInicial();
+	}
+	
+	public Coleccion<Carta> getMazoInicial()
+	{
+		Coleccion<Carta> mazoInicial = new Coleccion<Carta>();
+		mazoInicial.setColeccion(mazoinicial().getColeccion());
+		setActivo(true);
+		return mazoInicial;
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	
+	public boolean getActivo() {
+		return activo;
+	}
 	public Coleccion<Carta> getMazo() {
 		return mazo;
 	}
@@ -65,7 +104,7 @@ public class Mazo implements Serializable{
 
 	@Override
 	public String toString() {
-		return listar();
+		return "[ Nombre Mazo:"+ nombre + ", Estado-Activo:" + activo +","+ listar() +"]";
 	}
 	
 	/**
@@ -74,7 +113,7 @@ public class Mazo implements Serializable{
 	 * 
 	 * @return un mazo con 25 cartas basicas + 10 epicas y 5 legendarias
 	 */
-	public Coleccion<Carta> mazoinicial ()
+	public Coleccion<Carta> mazoinicial()
 	{
 		ArrayList<Carta> lista = leerArchivo();				///mi cartas del archivo
 		Coleccion<Carta> mazo = new Coleccion<Carta>();		///va a ser el contenedor de mi mazo inicial

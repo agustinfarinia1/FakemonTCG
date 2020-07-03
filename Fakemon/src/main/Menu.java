@@ -3,6 +3,7 @@ package main;
 import java.util.Scanner;
 import Usuarios.Usuario;
 import colecciones.ListaUsuarios;
+import exception.ListaMazosException;
 import exception.UserException;
 import utils.UserUtils;
 
@@ -38,7 +39,13 @@ public class Menu {
 	
 	public void menuPrincipal()
 	{
-		Usuario user = new Usuario();
+		Usuario user = null;
+		try {
+			user = new Usuario();
+		} catch (ListaMazosException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		ListaUsuarios listaUsuario = new ListaUsuarios();
 		listaUsuario.cargarLista();
 		UserUtils userUtiles = new UserUtils();

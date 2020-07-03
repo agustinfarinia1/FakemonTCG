@@ -10,28 +10,25 @@ import Usuarios.Usuario;
 
 public class ErrorRegistroUser extends Exception{
 	
-	private Usuario usuario;
-	
-	public ErrorRegistroUser(Usuario usuario, String msg)
-	{
-		super(msg);	
-		this.usuario = usuario;
-	}
+	private String msg;
 	
 	public ErrorRegistroUser(String msg)
 	{
-		super(msg);
+		super(msg);	
+		this.msg = msg;
+	}
+	
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+	
+	public String getMsg() {
+		return msg;
 	}
 	
 	@Override
 	public String getMessage() {
 		
-		return super.getMessage() + " ";
+		return getMsg();
 	}
-	
-	public String getMinimoNombre()
-	{
-		return "El usuario debe ingresar un minimo de nombre de 8 caracteres";
-	}
-	
 }

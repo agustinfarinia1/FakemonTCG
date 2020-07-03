@@ -122,14 +122,14 @@ public class ListaCarta implements IArchivar{
 			
 		} catch (EOFException e) {
 			
-			e.printStackTrace();
+			//e.printStackTrace();
 			
 		} catch (IOException ex) {
 			
-			ex.printStackTrace();
+			//ex.printStackTrace();
 
 		} catch (ClassNotFoundException ex) {
-			ex.printStackTrace();
+			//ex.printStackTrace();
 		}
 	}
 	

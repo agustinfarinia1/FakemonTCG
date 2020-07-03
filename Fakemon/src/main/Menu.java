@@ -2,7 +2,8 @@ package main;
 
 import java.util.Scanner;
 import Usuarios.Usuario;
-import exception.ErrorRegistroUser;
+import colecciones.ListaUsuarios;
+import exception.ExceptionUsuario;
 
 public class Menu {
 
@@ -37,30 +38,31 @@ public class Menu {
 	public void menuPrincipal()
 	{
 		Usuario user = new Usuario();
+		ListaUsuarios listaUsuario = new ListaUsuarios();
+		listaUsuario.cargarLista();
 		while(verificarSalir(salir))
 		{
 			switch(opcionMenu(1))	// devuelve la opcion elegida y muestra el titulo del menu
 			{
 				case 1:
 				try {
-					loginUsuario();
-				} catch (ErrorRegistroUser e1) {
+					loginUsuario(listaUsuario);
+				} catch (ExceptionUsuario e) {
 					// TODO Auto-generated catch block
-					e1.getMessage();
+					System.out.println(e.getMessage());
 				} // Va al método de logueo
 				break;
 				
 				case 2:	
 				try {
-					registroUser(user); // Tendria que Implementar una excepcion en el nombre y contrasenia			
-				} catch(ErrorRegistroUser e)
+					registroUser(user,listaUsuario); // Tendria que Implementar una excepcion en el nombre y contrasenia			
+				} catch(ExceptionUsuario e)
 				{
 					System.out.println(e.getMessage());
 				}
 				break;
 				
-				case 3:
-				//lista.leerArchivoUsuario(); // "Muestra" los usuarios que están en el archivo
+				case 3: listaUsuario.leerArchivo();; // "Muestra" los usuarios que están en el archivo
 				break;
 				
 				case 4:	
@@ -75,7 +77,7 @@ public class Menu {
 		}
 	}
 	
-	public void menuUsuario() 
+	public void menuUsuario(Usuario usuario) 
 	{
 		while (verificarSalir(salir))
 		{
@@ -166,73 +168,63 @@ public class Menu {
 	
 	//				METODOS MENU PRINCIPAL				//	Metodos de Menu principal
 	
-	public Usuario loginUsuario() throws ErrorRegistroUser
+	public void loginUsuario(ListaUsuarios listaUsuario) throws ExceptionUsuario
 	{
-		Usuario user = new Usuario();
+		String nombre;
+		String contrasenia;
 		
 		System.out.println("Ingrese el nombre de usuario: \n");
-		user.setNombreUsuario(scan.nextLine());
+		nombre = scan.nextLine();
 		
-		if(user.getNombreUsuario().equalsIgnoreCase(""))
+		if(nombre.equalsIgnoreCase(""))
 		{
-			throw new ErrorRegistroUser("El nombre de usuario está vacio ");
+			throw new ExceptionUsuario("El nombre de usuario está vacio ");
 		}
-		else if (user.getNombreUsuario().length() <= 8)
+		else if (nombre.length() <= 8)
 		{
-			throw new ErrorRegistroUser("El nombre de usuario debe superar como minimo ocho caracteres");
+			throw new ExceptionUsuario("El nombre de usuario debe superar como minimo ocho caracteres");
 		}
 		
 		System.out.println("Ingrese una contraseña: \n");
-		user.setContrasenya(scan.nextLine());
+		contrasenia = scan.nextLine();
 		
-		if(user.getContrasenya().equalsIgnoreCase(""))
+		if(contrasenia.equalsIgnoreCase(""))
 		{
-			throw new ErrorRegistroUser("La contraseña está vacia");
+			throw new ExceptionUsuario("La contraseña está vacia");
 		} 
-		else if (user.getContrasenya().length() <= 8)
+		else if (contrasenia.length() <= 8)
 		{
-			throw new ErrorRegistroUser("La contraseña debe superar como minimo ocho caracteres");
+			throw new ExceptionUsuario("La contraseña debe superar como minimo ocho caracteres");
 		}
 		
-		return user;
-		
-	}
-	
-	public Usuario ComprobarLogin()
-	{
-		Usuario usuario = new Usuario();
-		
-		try {
-			
-			usuario = loginUsuario();
-			
-			
-			
-		} catch (ErrorRegistroUser e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if((listaUsuario.obtenerUsuarioPorNombreYContrasenia(nombre,contrasenia)) != null)
+		{
+			menuUsuario(listaUsuario.obtenerUsuarioPorNombreYContrasenia(nombre,contrasenia));
+		}
+		else
+		{
+			throw new ExceptionUsuario("Este usuario no esta registrado.");
 		}
 		
-		return usuario;
 	}
 	
 	/**
 	 * Metodo que registra un usuario.
 	 * @param user
-	 * @throws ErrorRegistroUser
+	 * @throws ExceptionUsuario
 	 */
-	public void registroUser(Usuario user) throws ErrorRegistroUser
+	public void registroUser(Usuario user,ListaUsuarios listaUsuario) throws ExceptionUsuario
 	{
 		System.out.println("Ingrese el nombre de usuario: \n");
 		user.setNombreUsuario(scan.nextLine());
 		
 		if(user.getNombreUsuario().equalsIgnoreCase(""))
 		{
-			throw new ErrorRegistroUser("El nombre de usuario está vacio ");
+			throw new ExceptionUsuario("El nombre de usuario está vacio ");
 		}
 		else if (user.getNombreUsuario().length() <= 8)
 		{
-			throw new ErrorRegistroUser("El nombre de usuario debe superar como minimo ocho caracteres");
+			throw new ExceptionUsuario("El nombre de usuario debe superar como minimo ocho caracteres");
 		}
 		
 		System.out.println("Ingrese una contraseña: \n");
@@ -240,19 +232,28 @@ public class Menu {
 		
 		if(user.getContrasenya().equalsIgnoreCase(""))
 		{
-			throw new ErrorRegistroUser("La contraseña está vacia");
+			throw new ExceptionUsuario("La contraseña está vacia");
 		} 
 		else if (user.getContrasenya().length() <= 8)
 		{
-			throw new ErrorRegistroUser("La contraseña debe superar como minimo ocho caracteres");
+			throw new ExceptionUsuario("La contraseña debe superar como minimo ocho caracteres");
 		}
 		
+		if(listaUsuario.obtenerUsuarioPorNombre(user.getNombreUsuario()) == null)	// Si no existe un usuario con ese nombre
+		{
+			listaUsuario.agregarUsuario(user);
+			listaUsuario.guardarArchivo();
+		}
+		else
+		{
+			throw new ExceptionUsuario("Ya existe un usuario con ese nombre.");
+		}
 	}
 	
 	/**
 	 * Usamos este metodo, para comparar los campos de nombre y contraseña con el del archivo de usuarios.
 	 * @return Usuario
-	 * @throws ErrorRegistroUser
+	 * @throws ExceptionUsuario
 	 */
 	
 	//				METODOS MENU USUARIO				//	Metodos de Menu Usuario

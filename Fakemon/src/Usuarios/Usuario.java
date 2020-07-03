@@ -1,9 +1,11 @@
 package Usuarios;
 
+import java.io.Serializable;
+
 import colecciones.ListaCarta;
 import colecciones.Mazo;
 
-public class Usuario {
+public class Usuario implements Serializable{
 	
 	public static int idValor = 1;
 	private String idUsuario;
@@ -102,10 +104,31 @@ public class Usuario {
 		return monedas;
 	}
 	
+	
+	@Override
+	public boolean equals(Object obj) {
+		boolean existencia = false;
+		if(obj instanceof Usuario)
+		{
+			Usuario aux = (Usuario) obj;
+			if(aux.getNombreUsuario().equals(this.getNombreUsuario()))
+			{
+				if(aux.getContrasenya().equals(this.getContrasenya()))
+				{
+					existencia = true;
+				}
+			}
+		}
+		return existencia;
+	}
+	
+	@Override
+	public int hashCode() {
+		return 0;
+	}
+	
 	@Override
 	public String toString() {
-		return "[idUsuario=" + idUsuario + ", nombreUsuario=" + nombreUsuario + ", contrasenya=" + contrasenya + mazo + "]";
+		return "[idUsuario=" + idUsuario + ", nombreUsuario=" + nombreUsuario + ", contrasenya=" + contrasenya  + ", Monedas=" + monedas  +"]";
 	}
 }
-
-

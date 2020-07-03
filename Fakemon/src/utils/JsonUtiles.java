@@ -200,7 +200,7 @@ public class JsonUtiles
 		
 		jObj = persistirCartaEnJSONObject(c);
 		
-		return jObj.toString();
+		return JsonUtiles.leer();
 	}
 	
 	/**
@@ -244,6 +244,27 @@ public class JsonUtiles
 		}
 		
 		return jObj;
+	}
+	
+	/**
+	 * Este metodo, crea un JSONArray a partir de los datos que recibe de un archivo de JSONArray
+	 * @return JSONArray
+	 * @throws JSONException
+	 */
+	public JSONArray DevolverJSONArrayDeArchivo() throws JSONException
+	{
+		JSONArray jarray = new JSONArray(getJSONArrayArchivo());
+		
+		return jarray;
+	}
+	
+	/**
+	 * Devuelve una cadena de String de JSONArray
+	 * @return
+	 */
+	public String getJSONArrayArchivo()
+	{
+		return JsonUtiles.leer();
 	}
 	
 }

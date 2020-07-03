@@ -12,10 +12,5 @@ public class Main {
 		
 		Menu menu = new Menu();
 		menu.menuPrincipal();
-		
-
-
-		//Hola
-
 	}
 }

@@ -89,7 +89,7 @@ public class ListaCarta implements IArchivar, Serializable{
 		{
 			for(Carta c : getListaCarta().getColeccion())
 			{
-				if(c.getNombre_Carta().equals(nombre))
+				if(c.getNombre_Carta().equalsIgnoreCase(nombre))
 				{
 					aux = c;
 				}

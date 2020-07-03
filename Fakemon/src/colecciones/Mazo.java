@@ -20,7 +20,7 @@ public class Mazo implements Serializable{
 	{
 		setNombre("Mazo Inicial");
 		setMazo();
-		setMazoInicial();
+		//setMazoInicial();
 	}
 	
 	

@@ -94,15 +94,23 @@ public class ListaMazos implements Serializable{
 		
 		int i = 0;
 		
-		listaTotal.leerArchivo();
+		//listaTotal.leerArchivo();
 		
-		while(i < 40)
+		while(i < 2)
 		{
 			System.out.println("Ingrese cartas por nombre a su nuevo mazo hasta un maximo de 50 \n");
 			String carta = scan.nextLine();
-			mazoNuevo.agregar(listaTotal.obtenerCartaPorNombre(carta));
-			i++;
+			if(listaTotal.obtenerCartaPorNombre(carta) != null)
+			{
+				mazoNuevo.agregar(listaTotal.obtenerCartaPorNombre(carta));
+				i++;
+			}
+			else
+			{
+				System.out.println("el nombre que ingreso es incorrecto");
+			}
 		}
+		scan.close();
 		return mazoNuevo;
 	}
 }

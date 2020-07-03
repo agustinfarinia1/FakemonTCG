@@ -150,22 +150,14 @@ public class Menu {
 
 				case 2:		System.out.println("Ingrese nombre del mazo a crear:");
 							String nombreMazo = scan.nextLine();
-							
-							/// hola fari como estas sisi aca estoy
-							Mazo mazoNuevo = new Mazo();
-							Coleccion<Carta> coleccion;
-							coleccion = ListaMazos.crearMazoNuevo();
-							
-							mazoNuevo.setMazo(coleccion);
-							
+							Mazo mazoNuevo = new Mazo(nombreMazo);
 							try {
 								usuario.getMiListaMazos().agregarMazo(nombreMazo, mazoNuevo);
 							} catch (ListaMazosException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
-							System.out.println(usuario.getMiListaMazos().toString());
-
+							System.out.println(usuario.getMiListaMazos());
 							break;
 							
 				case 3:		System.out.println("Ingrese nombre del mazo a eliminar:");

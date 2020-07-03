@@ -12,6 +12,7 @@ import cartas.Carta;
 import cartas.Carta_basica;
 import cartas.Carta_epica;
 import cartas.Carta_legendaria;
+import colecciones.Booster;
 import colecciones.Coleccion;
 import colecciones.ColeccionGenerica;
 import colecciones.ListaCarta;
@@ -25,10 +26,28 @@ public class Main {
 	public static void main(String[] args) {
 
 		//ListaCarta nueva = new ListaCarta();
-		//System.out.println(nueva.listar());
-		//nueva.GuardarLista();
-		//nueva.leerArchivo();
+		//nueva.devolvemeUnaLista();
 
+		//System.out.println("\n");
+		//nueva.guardarArchivo();
+		
+		//nueva.leerArchivo();
+////////////////////////////   PROBANDO EL METODO GENERAR MAZO///////////////	
+		/*
+		Mazo nuevo = new Mazo();
+		nuevo.devolvemeUnMazoInicial();
+		System.out.println("Cantidad de cartas" + "\n");
+		System.out.println(nuevo.tamañoMazo());
+		System.out.println("Este es mi mazo" + "\n");
+		System.out.println(nuevo.listar());
+		*/
+//////////////////////////// PRBANDO EL METODO GENERAR BOOSTER//////////////////////
+		Booster booster = new Booster();
+		booster.devolvemeUnBooster();
+		System.out.println(booster.tamañoMazo());
+		System.out.println(booster.listar());
+		
+	/*	
 	Carta_basica charmander1 = new Carta_basica(0001, "charmander");
 	Carta_basica charmander2 = new Carta_basica(0001, "charmander");
 	Carta_basica charmander3 = new Carta_basica(0001, "charmander");
@@ -82,13 +101,15 @@ public class Main {
 	
 	*/
 	
-	Mazo mazo = new Mazo();
-	Mano mano = new Mano();
+//>	Mazo mazo = new Mazo();
+//>	mazo.mazoinicial();
+//>	System.out.println(mazo.listar());
+//>	//Mano mano = new Mano();
 	
 	
-	mazo.agregarCartaMazo(nuevaCarta4);
-	mazo.agregarCartaMazo(nuevaCarta2);
-	mazo.agregarCartaMazo(nuevaCarta3);
+	//mazo.agregarCartaMazo(nuevaCarta4);
+	//mazo.agregarCartaMazo(nuevaCarta2);
+	//mazo.agregarCartaMazo(nuevaCarta3);
 
 	
 	//System.out.println(mazo.getMazo());
@@ -127,7 +148,7 @@ public class Main {
 	System.out.println(mazo.getMazo());
 	
 	*/
-	
+	/*
 	Coleccion<Carta> charmander = new Coleccion<Carta>();
 	
 	charmander.agregar(charmander1);
@@ -149,7 +170,7 @@ public class Main {
 	//System.out.println(prueba.listarHashMap(prueba.getHashMap())); // MUESTRA LA COLECCION DE CARTAS QUE TIENE	
 	//System.out.println(mazo1.listarHashMap(mazo1.getHashMap()));	// Muestra el mazo que tiene adentro
 
-		
+	*/	
 		
 		//Menu prueba = new Menu();
 		//prueba.menuPrincipal();
@@ -164,51 +185,7 @@ public class Main {
 	 */	
 		
 		
-		/**
-		 *  quedo joya esto
-		 */
-		Mazo deck = new Mazo();
 		
-		JSONArray jsonArray = new JSONArray();
-		
-		Coleccion<Carta> otroArray = new Coleccion<Carta>();
-		
-		deck.getMazo().agregar(nuevaCarta2);
-		deck.getMazo().agregar(nuevaCarta3);
-		deck.getMazo().agregar(nuevaCarta4);
-		deck.getMazo().agregar(nuevaCarta5);
-		
-<<<<<<< HEAD
-		try {
-			jsonArray = JsonUtiles.decodeJsonObject(deck.getMazo().getColeccion());
-			System.out.println(jsonArray.toString());
-			otroArray.setColeccion(JsonUtiles.fromJSONObject(jsonArray)); 
-			
-			System.out.println("A ver que onda esto...");
-			System.out.println(otroArray.toString());
-=======
-		//try {
-			//jsonArray = JsonUtiles.decodeJsonObject(deck.getMazo().getColeccion());
-			//System.out.println(jsonArray.toString());
-			//otroArray = JsonUtiles.fromJSONObject(jsonArray); /// aca hay un bug
-			//System.out.println(otroArray.toString());
->>>>>>> 20a1cb168e2c87d04a3e6c8a2fc543966989072b
-			
-		//} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
-		//}
-		
-		Usuario usuario = new Usuario();
-		
-		System.out.println(usuario.toString());
-		
-		Menu menu = new Menu();
-		
-		System.out.println(usuario.getMilistaCartas().toString());
-		
-		//menu.menuUsuario();
-		
+
 	}
-	
 }

@@ -41,7 +41,7 @@ public class Menu {
 			switch(opcionMenu(1))	// devuelve la opcion elegida y muestra el titulo del menu
 			{
 				case 1:
-				loginUser(user); // Va al método de logueo
+				//loginUser(user); // Va al método de logueo
 				break;
 				
 				case 2:	
@@ -155,7 +155,7 @@ public class Menu {
 	
 	//				METODOS MENU PRINCIPAL				//	Metodos de Menu principal
 	
-	public void loginUser (Usuario user)
+	public void loginUser (String nombreUser, String pass)
 	{
 		
 		System.out.println("TODO"); // Hacer logueo de usuario

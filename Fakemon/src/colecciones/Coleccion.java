@@ -41,6 +41,7 @@ public class Coleccion <T>{
 		builder.append("\nLista de Cartas:\n");
 		for(T obj : getColeccion())
 		{
+			
 			builder.append(obj.toString()+"\n");
 			
 		}

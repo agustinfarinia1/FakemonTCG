@@ -13,9 +13,9 @@ public class Main {
 		Menu menu = new Menu();
 		menu.menuPrincipal();
 		
-<<<<<<< HEAD
-=======
+
+
 		//Hola
->>>>>>> c0bd29616e08c7164eb16cd669cf0030c3e78a81
+
 	}
 }

@@ -147,26 +147,24 @@ public class Menu {
 								}
 							}
 							break;
-							
-<<<<<<< HEAD
-				case 2:		System.out.println("Crear un mazo a partir de la coleccion de cartas propias");
 
+				case 2:		System.out.println("Ingrese nombre del mazo a crear:");
+							String nombreMazo = scan.nextLine();
+							
 							Mazo mazoNuevo = new Mazo();
 							Coleccion<Carta> coleccion;
 							coleccion = ListaMazos.crearMazoNuevo();
 							
-							/// agregar aca, que esa coleccion pase a la lista de mazos del usuario.
-=======
-				case 2:		System.out.println("Ingrese nombre del mazo a crear:");
-							String nombreMazo = scan.nextLine();
+							mazoNuevo.setMazo(coleccion);
+							
 							try {
-								usuario.getMiListaMazos().agregarMazo(nombreMazo,new Mazo(nombreMazo));
+								usuario.getMiListaMazos().agregarMazo(nombreMazo, mazoNuevo);
 							} catch (ListaMazosException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
 							System.out.println(usuario.getMiListaMazos().toString());
->>>>>>> c0bd29616e08c7164eb16cd669cf0030c3e78a81
+
 							break;
 							
 				case 3:		System.out.println("Ingrese nombre del mazo a eliminar:");

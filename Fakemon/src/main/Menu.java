@@ -151,6 +151,7 @@ public class Menu {
 				case 2:		System.out.println("Ingrese nombre del mazo a crear:");
 							String nombreMazo = scan.nextLine();
 							
+							/// hola fari como estas sisi aca estoy
 							Mazo mazoNuevo = new Mazo();
 							Coleccion<Carta> coleccion;
 							coleccion = ListaMazos.crearMazoNuevo();

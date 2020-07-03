@@ -75,7 +75,7 @@ public class Menu {
 				}
 				break;
 				
-				case 3: listaUsuario.leerArchivo();; // "Muestra" los usuarios que están en el archivo
+				case 3: listaUsuario.leerArchivo(); // "Muestra" los usuarios que están en el archivo
 				break;
 				
 				case 4:	
@@ -97,21 +97,21 @@ public class Menu {
 			switch (opcionMenu(2))	// devuelve la opcion elegida y muestra el titulo del menu
 			{	
 				case 1:  	System.out.println("Bienvenido al Modo Campaña");
-							System.out.println("TODO");
+							System.out.println("PROXIMAMENTE");
 							break;
 							
 				case 2:		System.out.println("Bienvenido al Modo Multijugador Online");
-							System.out.println("TODO");
+							System.out.println("PROXIMAMENTE");
 							break;
 							
 				case 3:		System.out.println("Menu Editar Mazo");
 							Menu editmazo = new Menu();
-							editmazo.menuEditarMazo();
+							editmazo.menuEditarMazo(usuario);
 							break;
 							
 				case 4: 	System.out.println("Menu comprar Cartas");
 							Menu comprarcartas = new Menu();
-							comprarcartas.menuComprarBooster();
+							comprarcartas.menuComprarBooster(usuario);
 							break;
 							
 				case 0:		salir = 's';
@@ -124,16 +124,31 @@ public class Menu {
 			
 	}
 	
-	public void menuEditarMazo() ///debe recibir tambien el user, y la coleccion
+	public void menuEditarMazo(Usuario usuario) ///debe recibir tambien el user, y la coleccion
 	{
 		while (verificarSalir(salir))
 		{
 			switch (opcionMenu(3)) 
 			{	
 				
-				case 1:  	System.out.println("Modifica el Valor del atributo activo a (true)");
+				case 1:  	System.out.println(usuario.getMiListaMazos());
+							if(usuario.getMiListaMazos().cantidadMazos() ==  1)
+							{
+								System.out.println("Usted tiene un mazo solo");
+							}
+							else
+							{
+								System.out.println("Ingrese el nombre del mazo que quiera:");
+								String nombreMazo = scan.nextLine();
+								if(usuario.getMiListaMazos().mazoActivo(nombreMazo, usuario) != null)
+								{
+									usuario.setMazo(usuario.getMiListaMazos().mazoActivo(nombreMazo, usuario));
+									System.out.println(usuario.getMazoActivo());
+								}
+							}
 							break;
 							
+<<<<<<< HEAD
 				case 2:		System.out.println("Crear un mazo a partir de la coleccion de cartas propias");
 
 							Mazo mazoNuevo = new Mazo();
@@ -141,9 +156,23 @@ public class Menu {
 							coleccion = ListaMazos.crearMazoNuevo();
 							
 							/// agregar aca, que esa coleccion pase a la lista de mazos del usuario.
+=======
+				case 2:		System.out.println("Ingrese nombre del mazo a crear:");
+							String nombreMazo = scan.nextLine();
+							try {
+								usuario.getMiListaMazos().agregarMazo(nombreMazo,new Mazo(nombreMazo));
+							} catch (ListaMazosException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							System.out.println(usuario.getMiListaMazos().toString());
+>>>>>>> c0bd29616e08c7164eb16cd669cf0030c3e78a81
 							break;
 							
-				case 3:		System.out.println("Elimina el mazo Modificando el atributo eliminado a (true)");
+				case 3:		System.out.println("Ingrese nombre del mazo a eliminar:");
+							nombreMazo = scan.nextLine();
+							usuario.getMiListaMazos().eliminarMazo(nombreMazo,usuario.getMiListaMazos().getListaMazos().existenciaHashMap(nombreMazo));
+							System.out.println(usuario.getMiListaMazos().toString());
 							break;
 							
 				case 4: 	System.out.println("Edita un mazo agregando o quitando cartas de el");
@@ -158,20 +187,29 @@ public class Menu {
 			
 	}
 	
-	public void menuComprarBooster() ///debe recibir tambien el user, y la coleccion de admin
+	public void menuComprarBooster(Usuario usuario) ///debe recibir tambien el user, y la coleccion de admin
 	{
 		while (verificarSalir(salir))
 		{
 			switch (opcionMenu(4)) 
 			{	
 				
-				case 1:  	System.out.println("Trae de collection admin un metodo que se llama generar booster"); // devuelve un random de cartas que se agregaran a la collecion del usuario
+				case 1:  	if(usuario.getMonedas() >= 20)// devuelve un random de cartas que se agregaran a la collecion del usuario
+							{
+								
+								usuario.setMonedas(usuario.getMonedas() - 20);
+								System.out.println(usuario.getMonedas());
+							}
+							else
+							{
+								System.out.println("no le alcanza para comprar un booster.");
+							}
 							break;
 							
 				case 2:		System.out.println("Vende las cartas eliminandolas de la coleccion pero guardando el atributo valorCarta en un aux y a su vez en el usuario");
 							break;
 							
-				case 3:		System.out.println("Ver el saldo que le va quedando al usuario");
+				case 3:		System.out.println("El saldo es de "+ usuario.getMonedas() + "monedas.");
 							break;
 				
 				case 0:		salir = 's';
@@ -184,16 +222,6 @@ public class Menu {
 		}
 			
 	}
-	//				METODOS MENU USUARIO				//	Metodos de Menu Usuario
-	
-	//				METODOS MENU PRINCIPAL				//	Metodos de Menu Principal
-	
-	//				ADMINISTRADOR EDITAR MAZO				//	Metodos de Menu Editar Mazo
-	
-	//				METODOS COMPRAR BOOSTER				//	Metodos de Menu Comprar Booster
-	
-	
-	
 	
 	//				ADMINISTRADOR DE MENUES				//
 	

@@ -1,12 +1,16 @@
 package colecciones;
 
+<<<<<<< HEAD
 import java.util.Scanner;
+=======
+import java.io.Serializable;
+>>>>>>> c0bd29616e08c7164eb16cd669cf0030c3e78a81
 
 import Usuarios.Usuario;
 import cartas.Carta;
 import exception.ListaMazosException;
 
-public class ListaMazos {
+public class ListaMazos implements Serializable{
 	private ColeccionGenerica<Mazo> listaMazos;
 	private int cantidadMazos;
 	
@@ -52,7 +56,11 @@ public class ListaMazos {
 	public Mazo mazoActivo(String nombreMazo,Usuario usuario) {
 		eliminarMazo(usuario.getMazoActivo().getNombre(),usuario.getMazoActivo());
 		//listaMazos.añadir(usuario.getMazoActivo().getNombre(),usuario.getMazoActivo()// Se le saca el activo al otro
+<<<<<<< HEAD
 	//	listaMazos.existenciaHashMap(nombreMazo).setActivo(true);	// y se le pone al nuevo
+=======
+		listaMazos.existenciaHashMap(nombreMazo);	// y se le pone al nuevo
+>>>>>>> c0bd29616e08c7164eb16cd669cf0030c3e78a81
 		System.out.println(getListaMazos().toString());
 		return 	getListaMazos().existenciaHashMap(nombreMazo);	// retorna para que lo guarde el usuario
 	}

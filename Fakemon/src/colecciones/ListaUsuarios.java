@@ -18,7 +18,7 @@ import Usuarios.Usuario;
 
 public class ListaUsuarios implements Serializable{
 	public static String nombreArchivoListaUsuarios = "listaUsuarios.dat";
-	private HashSet <Usuario> lista;
+	private HashSet<Usuario> lista;
 	
 	public ListaUsuarios(){
 		setListaUsuario();

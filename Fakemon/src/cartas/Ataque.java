@@ -20,6 +20,11 @@ public class Ataque {
 		poder_ataque = _poder_ataque;
 		costo = _costo;
 	}
+	
+	/*
+	 * 	Getters y Setters de Ataque
+	 */
+	
 	public String getNombre_ataque() {
 		return nombre_ataque;
 	}

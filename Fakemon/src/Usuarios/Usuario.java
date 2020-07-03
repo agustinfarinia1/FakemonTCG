@@ -21,7 +21,7 @@ public class Usuario {
 		setListaCartas();
 		setMonedas(20);
 		setMazo();
-		milistaCartas = getMilistaCartas().generarListaSeteadaUser();
+		setListaCartas(getMilistaCartas().generarListaSeteadaUser());
 	}
 	
 	public Usuario (String nombreUsuario , String contrasenya)
@@ -32,7 +32,7 @@ public class Usuario {
 		setListaCartas();
 		setMonedas(20);
 		setMazo();
-		milistaCartas = getMilistaCartas().generarListaSeteadaUser();
+		setListaCartas(getMilistaCartas().generarListaSeteadaUser());
 	}
 	
 	public Usuario(String nombreUsuario, String contrasenya, Mazo mazo) {
@@ -42,7 +42,7 @@ public class Usuario {
 		setListaCartas();
 		setMonedas(20);
 		setMazo(mazo);
-		milistaCartas = getMilistaCartas().generarListaSeteadaUser();
+		setListaCartas(getMilistaCartas().generarListaSeteadaUser());
 	}
 	
 	

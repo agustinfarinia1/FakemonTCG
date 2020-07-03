@@ -19,14 +19,18 @@ public class Booster extends Mazo{
 		return booster;
 	}
 
+
 	public void setBooster(Coleccion<Carta> booster) {
 		this.booster = booster;
 	}
 
-	/*
+
+	/**
 	 * Metodo que genera automaticamente un booster con 7 cartas (1 legendaria, 2 epicas, 4 basicas)
 	 * las tiene que traer del archivo de cartas
 	 * devuelve una coleccion con las cartas aleatorias
+	 * @param lista
+	 * @return Coleccion<Carta>
 	 */
 	public Coleccion<Carta> booster ()
 	{
@@ -62,6 +66,7 @@ public class Booster extends Mazo{
 		return booster;
 	}
 	
+
 	public void devolvemeUnBooster()
 	{
 		this.booster = booster();
@@ -70,6 +75,15 @@ public class Booster extends Mazo{
 	
 	/*
 	 * metodoo que devuelve una coleccion con una lista de cartas de un determinado tipo o rareza
+
+	/**
+	 * 
+	 * Metodo que devuelve una coleccion con una lista de cartas de un determinado tipo o rareza
+	 *
+	 * @param ListaCarta lista
+	 * @param String rare
+	 * @return Coleccion<Carta>
+
 	 */
 	public Coleccion<Carta> listaDeTipos (ListaCarta lista, String rare)
 	{

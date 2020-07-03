@@ -24,6 +24,9 @@ public  class Carta_basica extends Carta implements IAtacar{
 		return ataqueEspecial1;
 	}
 	
+	/*
+	 * Funcion para randomizar el ataqueEspecial
+	 */
 	public int ataqueEspecial (int max, int min)
 	{	
 		int value = getRandomInt(max, min);
@@ -35,7 +38,9 @@ public  class Carta_basica extends Carta implements IAtacar{
 		this.ataqueEspecial1 = ataqueEspecial1;
 	}
 
-
+	/**
+	 * Funcion para tirar dados, nos va a servir para atacar
+	 */
 	@Override
 	public int tirarDados() 
 	{

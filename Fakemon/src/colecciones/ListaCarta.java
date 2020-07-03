@@ -18,10 +18,14 @@ import cartas.Carta_legendaria;
 import interfaces.IArchivar;
 import interfaces.IColeccion;
 
-// Tiene todas las cartas del juego, a futuro se puede cambiar por un hash map
-// para agregar una carta a los mazos , esta tendria que estar en la lista de cartas
-// funciona como stock de cartas
-// se podria agregar un atributo disponible en carta para saber si la carta esta en un mazo o no.
+/**
+ * 
+ *  Tiene todas las cartas del juego, a futuro se puede cambiar por un hash map para agregar una carta a los mazos
+ *  Esta tendria que estar en la lista de cartas
+ *	Funciona como stock de cartas
+ *	Se podria agregar un atributo disponible en carta para saber si la carta esta en un mazo o no.
+ *
+ */
 
 public class ListaCarta implements IArchivar{	
 	
@@ -36,6 +40,10 @@ public class ListaCarta implements IArchivar{
 		this.lista = new Coleccion<Carta>();
 		
 	}
+	
+	public void setListaCarta(Coleccion<Carta> listaCarta) {
+		this.lista = listaCarta;
+	}
 
 	public Coleccion<Carta> getListaCarta() {
 		return lista;
@@ -48,7 +56,9 @@ public class ListaCarta implements IArchivar{
 	
 	public void agregarCarta(Carta e) {
 		if(getListaCarta().existencia(e) == false)	// Seria para hacer la comprobacion de que no se pongan cartas iguales
+		{
 			getListaCarta().agregar(e);
+		}
 	}
 	
 	public boolean comprobarExistencia(String nombre) {	// comprueba existencia solo con el nombre
@@ -100,40 +110,56 @@ public class ListaCarta implements IArchivar{
 		return listar();
 	}
 	
-	public void cargarLista(ListaCarta lista)	// carga la lista con los datos del archivo
+	/**
+	 * Carga la lista con los datos del archivo
+	 * No se cargan los repetidos porque ya comprueba su existencia antes
+	 * @param lista
+	 */
+	public void cargarLista(ListaCarta lista)	
 	{
 		try {
 			FileInputStream fileInputStream = new FileInputStream(nombreArchivoListaCartas);
 			ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
 			Carta aux;
 			while ((aux = (Carta) inputStream.readObject()) != null) {
-				lista.agregarCarta(aux);	// no se cargan repetidos porque tiene equals adentro
+				lista.agregarCarta(aux);	
 			}
 			inputStream.close();
+			
 		} catch (EOFException e) {
-			// TODO: handle exception
+			
+			//e.printStackTrace();
+			
 		} catch (IOException ex) {
+			
+			//ex.printStackTrace();
 
 		} catch (ClassNotFoundException ex) {
-			ex.printStackTrace();
+			//ex.printStackTrace();
 		}
 	}
-
-	public void guardarArchivo() {	// guarda la lista en el archivo
+	
+	/**
+	 * Guarda la lista en el archivo
+	 */
+	public void guardarArchivo() {	
 		try {
 			
 			FileOutputStream fileOutputStream = new FileOutputStream(nombreArchivoListaCartas);
 			ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 			for (int i = 0; i < cantidad(); i++) {
-				objectOutputStream.writeObject(obtenerCartaPorPosicion(i)); // escribe una carta en el archivo
+				objectOutputStream.writeObject(obtenerCartaPorPosicion(i));
 			}
 			objectOutputStream.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
-	public void leerArchivo() // lee la informacion que esta en el archivo
+	
+	/**
+	 * Lee la informacion que esta en el archivo
+	 */
+	public void leerArchivo()
 	{
 		try {
 			FileInputStream fileInputStream = new FileInputStream(nombreArchivoListaCartas);
@@ -146,17 +172,26 @@ public class ListaCarta implements IArchivar{
 			inputStream.close();
 		} 
 		catch (EOFException e) {
-			// TODO: handle exception
+				
+			e.printStackTrace();
 		} 
 		catch (IOException ex) {
-
+			
+			ex.printStackTrace();
 		} 
 		catch (ClassNotFoundException ex) {
 			ex.printStackTrace();
 		}
 	}
-	
-	public  Coleccion<Carta> generarListaSeteadaAdmin() 		/// LISTA HARCODEADA PARA LLENAR EL ARCHIVO
+
+
+	 * Este metodo genera una lista hardcodeada para llenar el archivo,
+	 * lo llena de cartas de diferentes tipos
+	 * 
+	 * @return
+	 */
+	public Coleccion<Carta> generarListaSeteadaAdmin() 		/// LISTA HARCODEADA PARA LLENAR EL ARCHIVO
+
 	{
 		String basicos[] = { "Bulbasaur", "Squirtle", "Charmander", "Caterpie", "Weedle", "Pidgey", "Rattata",
 				"Spearow", "Ekans", "Pikachu", "Sandshrew", "Nidoran", "Vulpix", "Jigglypuff", "Zubat", "Oddish",
@@ -170,30 +205,45 @@ public class ListaCarta implements IArchivar{
 				"Vileplume", "Alakazam", "Mewtwo" };
 
 		Coleccion<Carta> archivocartas = new Coleccion<Carta>();
-
-		for (int i = 0; i < 30; i++) {
+		
+		for (int i = 0; i < basicos.length; i++) {
 			Carta_basica cb = new Carta_basica(i + 1, basicos[i]);
 			archivocartas.agregar(cb);
 
 		}
 
-		for (int j = 0; j < 15; j++) {
+		for (int j = 0; j < epicos.length; j++) {
 			int x = archivocartas.cantidadColeccion();
 			Carta_epica ce = new Carta_epica(x + 1, epicos[j]);
 			archivocartas.agregar(ce);
 		}
 
-		for (int k = 0; k < 10; k++) {
+		for (int k = 0; k < legendario.length; k++) {
 			int z = archivocartas.cantidadColeccion();
 			Carta_legendaria cl = new Carta_legendaria(z + 1, legendario[k]);
 			archivocartas.agregar(cl);
 		}
+
 		System.out.println("entre aca" + archivocartas.listar());
+
 		return archivocartas;
+	}
+	
+	public boolean existenciaPorNombre(String nombre){
+		for(Carta c : getListaCarta().getColeccion())
+		{
+			if(c.getNombre_Carta().equalsIgnoreCase(nombre))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public ListaCarta generarListaSeteadaUser() 		/// LISTA HARCODEADA PARA LLENAR EL ARCHIVO
 	{
+		ListaCarta admin = new ListaCarta();
+		cargarLista(admin);
 		String basicos[] = { "Bulbasaur", "Squirtle", "Charmander", "Caterpie", "Weedle", "Pidgey", "Rattata",
 				"Spearow", "Ekans", "Pikachu", "Sandshrew", "Nidoran", "Vulpix", "Jigglypuff", "Zubat", "Oddish",
 				"Paras", "Venonat", "Diglett", "Meowth", "Psyduck", "Mankey", "Growlithe", "Poliwag", "Abra", "Machop",
@@ -207,21 +257,38 @@ public class ListaCarta implements IArchivar{
 
 		for (int i = 0; i < basicos.length; i++) {
 			Carta_basica cb = new Carta_basica(i + 1, basicos[i]);
+
 			archivocartas.agregarCarta(cb);
+
+			if(admin.existenciaPorNombre(cb.getNombre_Carta()))	// Si existe en la listaDeCartas del admi, se agrega
+			{
+				archivocartas.agregarCarta(cb);
+			}
+
 			
 		}
 
 		for (int j = 0; j < epicos.length; j++) {
 			int x = archivocartas.cantidad();
 			Carta_epica ce = new Carta_epica(x + 1, epicos[j]);
+
 			archivocartas.agregarCarta(ce);
 			
+
+			if(admin.existenciaPorNombre(ce.getNombre_Carta())) // Si existe en la listaDeCartas del admi, se agrega
+			{
+				archivocartas.agregarCarta(ce);
+			}
+
 		}
 
 		for (int k = 0; k < legendario.length; k++) {
 			int z = archivocartas.cantidad();
 			Carta_legendaria cl = new Carta_legendaria(z + 1, legendario[k]);
-			archivocartas.agregarCarta(cl);
+			if(admin.existenciaPorNombre(cl.getNombre_Carta())) // Si existe en la listaDeCartas del admi, se agrega
+			{
+				archivocartas.agregarCarta(cl);
+			}
 		}
 		
 		return archivocartas;

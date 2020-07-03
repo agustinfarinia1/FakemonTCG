@@ -165,6 +165,13 @@ public class JsonUtiles
 		return c;
 	}
 	
+	/**
+	 * Este metodo, recibe una coleccion de cartas y la recorre para almacenar cada una de las cartas en un JSONObject 
+	 * y cada uno de estos en un JSONArray que vamos a devolver despues.
+	 * @param cartasParaPersistencia
+	 * @return JSONArray 
+	 * @throws JSONException
+	 */
 	public static JSONArray decodeJsonObject(ArrayList<Carta> cartasParaPersistencia) throws JSONException
 	{
 		Carta c;
@@ -181,7 +188,12 @@ public class JsonUtiles
 		return jarray;
 	}
 	
-	
+	/**
+	 * Este metodo, devuelve un JSONObject por cada carta que le mandemos
+	 * @param Carta carta
+	 * @return String
+	 * @throws JSONException
+	 */
 	public static String getJsonObjectCarta(Carta c) throws JSONException
 	{
 		JSONObject jObj = new JSONObject();
@@ -191,6 +203,12 @@ public class JsonUtiles
 		return jObj.toString();
 	}
 	
+	/**
+	 * Este metodo, recibe una carta y por cada uno de sus campos, agrega una key de una constante y el valor que le corresponde a un JSONObject
+	 * @param Carta Carta
+	 * @return JSONObject
+	 * @throws JSONException
+	 */
 	public static JSONObject persistirCartaEnJSONObject(Carta c) throws JSONException
 	{
 		JSONObject jObj = new JSONObject();

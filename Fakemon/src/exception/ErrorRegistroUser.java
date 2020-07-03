@@ -18,6 +18,8 @@ public class ErrorRegistroUser extends Exception{
 		this.msg = msg;
 	}
 	
+	
+	
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}

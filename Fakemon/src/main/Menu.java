@@ -2,7 +2,11 @@ package main;
 
 import java.util.Scanner;
 import Usuarios.Usuario;
+import cartas.Carta;
+import colecciones.Coleccion;
+import colecciones.ListaMazos;
 import colecciones.ListaUsuarios;
+import colecciones.Mazo;
 import exception.ListaMazosException;
 import exception.UserException;
 import utils.UserUtils;
@@ -131,6 +135,12 @@ public class Menu {
 							break;
 							
 				case 2:		System.out.println("Crear un mazo a partir de la coleccion de cartas propias");
+
+							Mazo mazoNuevo = new Mazo();
+							Coleccion<Carta> coleccion;
+							coleccion = ListaMazos.crearMazoNuevo();
+							
+							/// agregar aca, que esa coleccion pase a la lista de mazos del usuario.
 							break;
 							
 				case 3:		System.out.println("Elimina el mazo Modificando el atributo eliminado a (true)");

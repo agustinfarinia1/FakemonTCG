@@ -20,11 +20,12 @@ public class Coleccion <T> implements Serializable{
 	
 	private ArrayList<T> coleccion;
 	
+
 	public Coleccion()
 	{
 		setColeccion(new ArrayList <T>());
 	}
-
+	
 	public ArrayList<T> getColeccion() {
 		return coleccion;
 	}

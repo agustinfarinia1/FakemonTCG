@@ -28,7 +28,7 @@ import interfaces.IColeccion;
  *
  */
 
-public class ListaCarta implements IArchivar,Serializable{	
+public class ListaCarta implements IArchivar, Serializable{	
 	
 	public static String nombreArchivoListaCartas = "listaCartas.dat";
 	Coleccion <Carta> lista;
@@ -174,7 +174,7 @@ public class ListaCarta implements IArchivar,Serializable{
 		} 
 		catch (EOFException e) {
 				
-			e.printStackTrace();
+			System.out.println("Total de cartas.");
 		} 
 		catch (IOException ex) {
 			

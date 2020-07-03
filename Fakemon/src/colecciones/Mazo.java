@@ -22,6 +22,8 @@ public class Mazo implements Serializable{
 		setMazo();
 		setMazoInicial();
 	}
+	
+	
 	public Mazo(String nombre)
 	{
 		setNombre(nombre);
@@ -34,6 +36,11 @@ public class Mazo implements Serializable{
 	public void setMazo()
 	{
 		this.mazo = new Coleccion<Carta>();
+	}
+	
+	public void setMazo(Coleccion<Carta> coleccion)
+	{
+		this.mazo = coleccion;
 	}
 	
 	public void setMazoInicial()

@@ -57,6 +57,30 @@ public class Usuario implements Serializable{
 		this.miListaMazos = new ListaMazos();
 	}
 	
+	public static int getIdValor() {
+		return idValor;
+	}
+
+	public static void setIdValor(int idValor) {
+		Usuario.idValor = idValor;
+	}
+
+	public ListaCarta getMiListaCartas() {
+		return miListaCartas;
+	}
+
+	public void setMiListaCartas(ListaCarta miListaCartas) {
+		this.miListaCartas = miListaCartas;
+	}
+
+	public Mazo getMazo() {
+		return mazo;
+	}
+
+	public void setMiListaMazos(ListaMazos miListaMazos) {
+		this.miListaMazos = miListaMazos;
+	}
+
 	public ListaMazos getMiListaMazos() {
 		return miListaMazos;
 	}

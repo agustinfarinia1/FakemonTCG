@@ -55,7 +55,7 @@ public class ColeccionGenerica <T> implements IArchivar{
 		System.out.println("El tipo de T es: " + obj.getClass().getName());
 	}
 	
-	public StringBuilder listarHashMap(HashMap<String, T> hashMap)
+	public String listarHashMap(HashMap<String, T> hashMap)
 	{
 		StringBuilder builder = new StringBuilder();
 		
@@ -71,7 +71,24 @@ public class ColeccionGenerica <T> implements IArchivar{
 			builder.append(aux.getValue());
 			builder.append("\n");
 		}
-		return builder;
+		return builder.toString();
+	}
+	
+	public T existenciaHashMap(String clave)
+	{
+		
+		Set<Entry<String, T>> entry = getHashMap().entrySet();
+		Iterator<Entry<String, T>> itHash = entry.iterator();
+		
+		while(itHash.hasNext())
+		{
+			Entry<String, T> aux = itHash.next();
+			if(aux.getKey().equalsIgnoreCase(clave))
+			{
+				return aux.getValue();
+			}
+		}
+		return null;
 	}
 	
 	public JSONObject persistirColeccionEnJSONObject() throws JSONException

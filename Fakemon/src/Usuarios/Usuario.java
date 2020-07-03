@@ -3,7 +3,9 @@ package Usuarios;
 import java.io.Serializable;
 
 import colecciones.ListaCarta;
+import colecciones.ListaMazos;
 import colecciones.Mazo;
+import exception.ListaMazosException;
 
 public class Usuario implements Serializable{
 	
@@ -12,60 +14,63 @@ public class Usuario implements Serializable{
 	private String nombreUsuario;
 	private String contrasenya;
 	private Mazo mazo;
-	private ListaCarta milistaCartas;
+	private ListaCarta miListaCartas;
+	private ListaMazos miListaMazos;
 	private int monedas;
 	
-	public Usuario()
+	public Usuario() throws ListaMazosException
 	{
 		idUsuario = (String.valueOf(aumentarValorId()));
 		setNombreUsuario("");
 		setContrasenya("");
 		setListaCartas();
 		setMonedas(20);
-		setMazo();
+		setMazoInicial();
 		setListaCartas(getMilistaCartas().generarListaSeteadaUser());
+		setMiListaMazos();
+		getMiListaMazos().agregarMazo(this.mazo.getNombre(),getMazoActivo());
 	}
 	
-	public Usuario (String nombreUsuario , String contrasenya)
+	public Usuario (String nombreUsuario , String contrasenya) throws ListaMazosException
 	{
 		idUsuario = (String.valueOf(aumentarValorId()));
 		setNombreUsuario(nombreUsuario);
 		setContrasenya(contrasenya);
 		setListaCartas();
 		setMonedas(20);
-		setMazo();
+		setMazoInicial();	// no comprueba con la lista de cartas o tendria que pasarsela para que la setee con las cartas de ahi
 		setListaCartas(getMilistaCartas().generarListaSeteadaUser());
+		setMiListaMazos();
+		getMiListaMazos().agregarMazo(this.mazo.getNombre(),getMazoActivo());
 	}
 	
-	public Usuario(String nombreUsuario, String contrasenya, Mazo mazo) {
-		idUsuario = (String.valueOf(aumentarValorId()));
-		setNombreUsuario(nombreUsuario);
-		setContrasenya(contrasenya);
-		setListaCartas();
-		setMonedas(20);
-		setMazo(mazo);
-		setListaCartas(getMilistaCartas().generarListaSeteadaUser());
-	}
-	
-	
-	private void setMazo() {
+	public void setMazoInicial() {
 		this.mazo = new Mazo();
 	}
 	
-	private void setMazo(Mazo mazo) {
+	public void setMazo(Mazo mazo) {
 		this.mazo = mazo;
 	}
 	
-	private int aumentarValorId() {
+	public void setMiListaMazos()
+	{
+		this.miListaMazos = new ListaMazos();
+	}
+	
+	public ListaMazos getMiListaMazos() {
+		return miListaMazos;
+	}
+	
+	public int aumentarValorId() {
 		return idValor++;
 	}
 	
-	private void setListaCartas() {
-		this.milistaCartas = new ListaCarta();
+	public void setListaCartas() {
+		this.miListaCartas = new ListaCarta();
 	}
 	
-	private void setListaCartas(ListaCarta lista) {
-		this.milistaCartas = lista;
+	public void setListaCartas(ListaCarta lista) {
+		this.miListaCartas = lista;
 	}
 
 	public void setIdUsuario(String idUsuario) {
@@ -77,7 +82,7 @@ public class Usuario implements Serializable{
 	}
 	
 	public ListaCarta getMilistaCartas() {
-		return milistaCartas;
+		return miListaCartas;
 	}
 	
 	public String getIdUsuario() {
@@ -96,7 +101,7 @@ public class Usuario implements Serializable{
 	public void setContrasenya(String contrasenya) {
 		this.contrasenya = contrasenya;
 	}
-	public Mazo getMazo() {
+	public Mazo getMazoActivo() {
 		return mazo;
 	}
 	

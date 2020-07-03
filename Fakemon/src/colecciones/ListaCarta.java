@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -27,7 +28,7 @@ import interfaces.IColeccion;
  *
  */
 
-public class ListaCarta implements IArchivar{	
+public class ListaCarta implements IArchivar,Serializable{	
 	
 	public static String nombreArchivoListaCartas = "listaCartas.dat";
 	Coleccion <Carta> lista;

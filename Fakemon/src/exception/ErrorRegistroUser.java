@@ -12,17 +12,26 @@ public class ErrorRegistroUser extends Exception{
 	
 	private Usuario usuario;
 	
-	public ErrorRegistroUser(String msg, Usuario usuario)
+	public ErrorRegistroUser(Usuario usuario, String msg)
 	{
-		super(msg);	// SU usuario no cumple las normas del juego
+		super(msg);	
 		this.usuario = usuario;
 	}
-	// minimo de nombre 8 caracteres
-	// minimo de 8 caracteres
+	
+	public ErrorRegistroUser(String msg)
+	{
+		super(msg);
+	}
 	
 	@Override
 	public String getMessage() {
 		
-		return super.getMessage() + " " + usuario;
+		return super.getMessage() + " ";
 	}
+	
+	public String getMinimoNombre()
+	{
+		return "El usuario debe ingresar un minimo de nombre de 8 caracteres";
+	}
+	
 }
